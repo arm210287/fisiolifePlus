@@ -1,4 +1,7 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
 <title>FisioLife Plus</title>
@@ -45,8 +48,9 @@
 								            <div id="loginContainer">
 												 <a href="" id="loginButton" onclick=""><img  alt="" src="./images/login.png"></a>
 <!-- 								                <div style="clear:both"></div> -->
-								                <div id="loginBox">                
-								                    <form id="loginForm">
+								                <div id="loginBox">       
+								                <c:url var="loginUrl" value="/login" />         
+								                    <form id="loginForm" action="${loginUrl}" method="post">
 								                        <fieldset id="body">
 								                            <fieldset>
 								                                <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="usuario" />
