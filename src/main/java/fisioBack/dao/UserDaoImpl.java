@@ -18,24 +18,24 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 
 	static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 	
-	public User findById(int id) {
-		User user = getByKey(id);
-		if(user!=null){
-			Hibernate.initialize(user.getRoles());
-		}
-		return user;
-	}
+//	public User findById(int id) {
+//		User user = getByKey(id);
+//		if(user!=null){
+//			Hibernate.initialize(user.getRoles());
+//		}
+//		return user;
+//	}
 
-	public User findBySSO(String sso) {
-		logger.info("SSO : {}", sso);
-		Criteria crit = createEntityCriteria();
-		crit.add(Restrictions.eq("ssoId", sso));
-		User user = (User)crit.uniqueResult();
-		if(user!=null){
-			Hibernate.initialize(user.getRoles());
-		}
-		return user;
-	}
+//	public User findBySSO(String sso) {
+//		logger.info("SSO : {}", sso);
+//		Criteria crit = createEntityCriteria();
+//		crit.add(Restrictions.eq("ssoId", sso));
+//		User user = (User)crit.uniqueResult();
+//		if(user!=null){
+//			Hibernate.initialize(user.getRoles());
+//		}
+//		return user;
+//	}
 
 	@SuppressWarnings("unchecked")
 	public List<User> findAllUsers() {
@@ -61,6 +61,18 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		crit.add(Restrictions.eq("ssoId", sso));
 		User user = (User)crit.uniqueResult();
 		delete(user);
+	}
+
+	@Override
+	public User findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User findBySSO(String sso) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

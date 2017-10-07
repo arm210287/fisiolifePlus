@@ -16,11 +16,11 @@ public class LoginServiceImpl implements LoginService{
 	
 	@Autowired
 	LoginDao dao;
-	
+	@Override
 	public Login findById(int id) {
 		return dao.findById(id);
 	}
-
+	@Override
 	public List<Login> findAll() {
 		return dao.findAll();
 	}

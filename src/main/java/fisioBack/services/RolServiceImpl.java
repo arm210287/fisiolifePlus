@@ -16,15 +16,15 @@ public class RolServiceImpl implements RolService{
 	
 	@Autowired
 	RolDao dao;
-	
+	@Override
 	public Rol findById(int id) {
 		return dao.findById(id);
 	}
-
+	@Override
 	public Rol findByType(String type){
 		return dao.findByType(type);
 	}
-
+	@Override
 	public List<Rol> findAll() {
 		return dao.findAll();
 	}

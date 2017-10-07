@@ -1,47 +1,24 @@
-package fisioBack.configuration;
-
-import javax.security.auth.login.Configuration;
-
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
-public class AppInitializer  extends AbstractAnnotationConfigDispatcherServletInitializer {
-
-//	public void onStartup(ServletContext container) throws ServletException {
+//package fisioBack.configuration;
 //
-//		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-//		ctx.register(Configuracion.class);
-//		ctx.setServletContext(container);
+//import javax.security.auth.login.Configuration;
 //
-//		ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(ctx));
+//import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 //
-//		servlet.setLoadOnStartup(1);
-//		servlet.addMapping("/");
+//public class AppInitializer  extends AbstractAnnotationConfigDispatcherServletInitializer {
+//
+//	@Override
+//	protected Class<?>[] getRootConfigClasses() {
+//		return new Class[] { Configuration.class };
 //	}
-//	
-//    protected Class<?>[] getRootConfigClasses() {
-//        return new Class[] { Configuracion.class };
-//    }
-//  
-//    protected Class<?>[] getServletConfigClasses() {
-//        return null;
-//    }
-//  
-//    protected String[] getServletMappings() {
-//        return new String[] { "/" };
-//    }
-	@Override
-	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { Configuration.class };
-	}
- 
-	@Override
-	protected Class<?>[] getServletConfigClasses() {
-		return null;
-	}
- 
-	@Override
-	protected String[] getServletMappings() {
-		return new String[] { "/" };
-	}
-
-}
+// 
+//	@Override
+//	protected Class<?>[] getServletConfigClasses() {
+//		return null;
+//	}
+// 
+//	@Override
+//	protected String[] getServletMappings() {
+//		return new String[] { "/*" };
+//	}
+//
+//}

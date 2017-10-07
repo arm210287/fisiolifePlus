@@ -1,19 +1,11 @@
 package fisioBack.model;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -58,18 +50,14 @@ public class User implements Serializable{
 	private String telefono;
 
 	@NotEmpty
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "DIRECCION", 
-             joinColumns = { @JoinColumn(name = "id_direccion") }, 
-             inverseJoinColumns = { @JoinColumn(name = "direccion") })
+	@Column(name="DIRECCION", nullable=false)
 	private Direccion direccion = new Direccion();
-	
+
 	@NotEmpty
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "ROL", 
-             joinColumns = { @JoinColumn(name = "id_rol") }, 
-             inverseJoinColumns = { @JoinColumn(name = "rol") })
-	private Set<Rol> roles = new HashSet<Rol>();
+	@Column(name="ROL", nullable=false)
+	private Rol rol = new Rol();
+	
+
 
 	public Integer getId_usuario() {
 		return id_usuario;
@@ -143,59 +131,12 @@ public class User implements Serializable{
 		this.direccion = direccion;
 	}
 
-	public Set<Rol> getRoles() {
-		return roles;
+	public Rol getRol() {
+		return rol;
 	}
 
-	public void setRoles(Set<Rol> roles) {
-		this.roles = roles;
+	public void setRol(Rol rol) {
+		this.rol = rol;
 	}
-
-
-//
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		result = prime * result + ((id == null) ? 0 : id.hashCode());
-//		result = prime * result + ((ssoId == null) ? 0 : ssoId.hashCode());
-//		return result;
-//	}
-
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (!(obj instanceof User))
-//			return false;
-//		User other = (User) obj;
-//		if (id == null) {
-//			if (other.id != null)
-//				return false;
-//		} else if (!id.equals(other.id))
-//			return false;
-//		if (ssoId == null) {
-//			if (other.ssoId != null)
-//				return false;
-//		} else if (!ssoId.equals(other.ssoId))
-//			return false;
-//		return true;
-//	}
-
-	/*
-	 * DO-NOT-INCLUDE passwords in toString function.
-	 * It is done here just for convenience purpose.
-	 */
-//	@Override
-//	public String toString() {
-//		return "User [id=" + id + ", ssoId=" + ssoId + ", password=" + password
-//				+ ", firstName=" + firstName + ", lastName=" + lastName
-//				+ ", email=" + email + "]";
-//	}
-//
-
-	
 	
 }
