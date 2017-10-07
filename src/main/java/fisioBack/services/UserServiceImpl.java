@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import fisioBack.dao.UserDao;
 import fisioBack.model.User;
 
@@ -16,13 +17,14 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao dao;
 
-	@Autowired
-    private PasswordEncoder passwordEncoder;
-	
+//	@Autowired
+//    private PasswordEncoder passwordEncoder;
+//	
+	@Override
 	public User findById(int id) {
 		return dao.findById(id);
 	}
-
+	@Override
 	public User findBySSO(String sso) {
 		User user = dao.findBySSO(sso);
 		return user;

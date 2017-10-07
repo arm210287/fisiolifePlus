@@ -39,11 +39,9 @@ public class Login implements Serializable{
 	private String claveUsuario;
 	
 	@NotEmpty
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinTable(name = "USUARIO", 
-             joinColumns = { @JoinColumn(name = "id_usuario") }, 
-             inverseJoinColumns = { @JoinColumn(name = "fk_usuario") })
-	private User user = new User();
+	@Column(name="FK_USUARIO",nullable=false)
+	private String usuario;
+
 
 	public Integer getId_login() {
 		return id_login;
@@ -71,14 +69,14 @@ public class Login implements Serializable{
 		this.claveUsuario = claveUsuario;
 	}
 
-	public User getUser() {
-		return user;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
-	
+
 	
 
 }
