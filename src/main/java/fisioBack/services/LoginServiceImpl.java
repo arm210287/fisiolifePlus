@@ -1,7 +1,5 @@
 package fisioBack.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,17 +14,9 @@ public class LoginServiceImpl implements LoginService{
 	
 	@Autowired
 	LoginDao dao;
-	@Override
-	public Login findById(int id) {
-		return dao.findById(id);
-	}
-	@Override
-	public List<Login> findAll() {
-		return dao.findAll();
-	}
 
 	@Override
-	public Login checkLogin(Login login) {
+	public boolean checkLogin(Login login) {
 		return dao.checkLogin(login);
 	}
 }

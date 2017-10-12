@@ -16,30 +16,22 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="LOGIN")
+@Table(name="login")
+@SuppressWarnings("serial")
 public class Login implements Serializable{
 
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7621136182822162955L;
-
 	@Id 
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID_LOGIN",nullable=false)
+	@GeneratedValue
+	@Column(name="id_login",nullable=false)
 	private Integer id_login;	
 	
-	@NotEmpty
-	@Column(name="NOMBRE_USUARIO",nullable=false)
+	@Column(name="nombre_usuario",nullable=false)
 	private String nombreUsuario;	
 	
-	@NotEmpty
-	@Column(name="CLAVE_USUARIO",nullable=false)
+	@Column(name="clave_usuario",nullable=false)
 	private String claveUsuario;
 	
-	@NotEmpty
-	@Column(name="FK_USUARIO",nullable=false)
+	@Column(name="fk_usuario",nullable=false)
 	private String usuario;
 
 

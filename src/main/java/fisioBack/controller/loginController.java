@@ -23,14 +23,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import fisioBack.model.Login;
-import fisioBack.model.User;
-import fisioBack.model.UserProfile;
+//import fisioBack.model.User;
+//import fisioBack.model.UserProfile;
 import fisioBack.services.LoginService;
 //import fisioBack.services.UserProfileService;
-import fisioBack.services.UserService;
+//import fisioBack.services.UserService;
 
 
 @Controller
@@ -191,9 +190,9 @@ public class loginController {
 		Login login = new Login();
 		login.setNombreUsuario(nombreUsuario);
 		login.setClaveUsuario(claveUsuario);
-		
-		login=loginService.checkLogin(login);
-		if(login.getNombreUsuario().equals(nombreUsuario)&& login.getClaveUsuario().equals(claveUsuario)){
+		boolean existe =false;
+		existe=loginService.checkLogin(login);
+		if(!existe){
 			return "inicio";
 		}
 		else{
