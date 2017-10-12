@@ -26,7 +26,6 @@ public class LoginDaoImpl implements LoginDao {
 
 	@Override
     public boolean checkLogin(Login login){
-			System.out.println("In Check login");
 			Session session = sessionFactory.openSession();
 			boolean userFound = true;
 			//Query using Hibernate Query Language
