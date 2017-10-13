@@ -29,7 +29,11 @@ public class LoginDaoImpl implements LoginDao {
 			Session session = sessionFactory.openSession();
 			boolean userFound = true;
 			//Query using Hibernate Query Language
-			String SQL_QUERY ="from fisioBack.model.Login as o where o.nombreUsuario=? and o.claveUsuario=?";
+			String SQL_QUERY ="select r.tipo from "
+					+ "fisioBack.model.Login as l,"
+					+ "fisioBack.model.Rol as r,"
+					+ "fisioBack.model.User as u"
+					+ " where l.nombreUsuario=? and l.claveUsuario=? and l.fkUsuario= u.idUsuario and u.rol=r.idRol";
 			Query query =  session.createQuery(SQL_QUERY);
 			query.setParameter(0,login.getNombreUsuario());
 			query.setParameter(1,login.getClaveUsuario());

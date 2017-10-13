@@ -1,25 +1,9 @@
 package fisioBack.controller;
 
-import java.util.List;
-import java.util.Locale;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.security.authentication.AuthenticationTrustResolver;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -180,7 +164,7 @@ public class loginController {
 	 * If users is already logged-in and tries to goto login page again, will be redirected to list page.
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPage(@RequestParam ("nombreUsuario") String nombreUsuario, @RequestParam("claveUsuario")String claveUsuario) {
+	public String loginPage(@RequestParam ("nombreUsuario") String nombreUsuario, @RequestParam("claveUsuario")String claveUsuario,ModelMap model) {
 //		if (isCurrentAuthenticationAnonymous()) {
 //			return "login";
 //	    } else {
@@ -193,6 +177,7 @@ public class loginController {
 		boolean existe =false;
 		existe=loginService.checkLogin(login);
 		if(!existe){
+			model.addAttribute("nombreUsuario",login.getNombreUsuario());
 			return "inicio";
 		}
 		else{

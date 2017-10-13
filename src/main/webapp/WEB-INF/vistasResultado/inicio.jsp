@@ -52,9 +52,18 @@
 						<h2 class="nav-brand">
 							<a href="#"><img alt="" src="./images/fisioLogo3.png"></a>
 						</h2>
+						<h1 class="style=float:right">
+							<a href="#" title="cerrar sesion"><img alt="" src="./images/logout.png"></a>
+						</h1>
+						<h2 class="">
+							<a>Bienvenido: ${nombreUsuario}</a>
+						</h2>
 						<!-- Sample menu definition -->
 						<ul id="main-menu" class="sm sm-blue">
-							<li><a href="#">Inicio</a></li>
+<%-- 							<c:if test = "${1==1}"> --%>
+								<li><a href="#" >Inicio</a></li>
+
+<%-- 							</c:if> --%>
 							<li><a href="#">Agenda</a></li>
 							<li><a href="#">Pacientes</a></li>
 							<li><a href="#">Estadisticas</a>
@@ -64,7 +73,7 @@
 								</ul></li>
 							<li><a href="#">Contabilidad</a>
 								<ul>
-									<li><a href="#">Facturas</a></li>
+									<li><a href="#" class="disabled">Facturas</a></li>
 									<li><a href="#">Inventario</a></li>
 
 									<!-- 									<li><a href="#" class="disabled">Disabled menu item</a></li> -->
@@ -88,9 +97,7 @@
 		</div>
 		<!-- CONTENIDO -->
 		<div id="main">
-			<div class="container">
-
-			</div>
+			<div class="container"></div>
 		</div>
 	</div>
 

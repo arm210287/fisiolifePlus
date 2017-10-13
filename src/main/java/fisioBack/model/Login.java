@@ -32,7 +32,7 @@ public class Login implements Serializable{
 	private String claveUsuario;
 	
 	@Column(name="fk_usuario",nullable=false)
-	private String usuario;
+	private String fkUsuario;
 
 
 	public Integer getId_login() {
@@ -61,13 +61,15 @@ public class Login implements Serializable{
 		this.claveUsuario = claveUsuario;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getFkUsuario() {
+		return fkUsuario;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setFkUsuario(String fkUsuario) {
+		this.fkUsuario = fkUsuario;
 	}
+
+
 
 	
 
