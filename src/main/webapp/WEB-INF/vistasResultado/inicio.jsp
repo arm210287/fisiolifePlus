@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="./assets/css/main.css" />
 <link rel="stylesheet" href="./assets/css/menu.css" />
-
+<link rel="stylesheet" href="./assets/jqwidgets/styles/jqx.base.css"	type="text/css" />
 
 <!-- SmartMenus core CSS (required) -->
 <link href="./assets/css/sm-core-css.css" rel="stylesheet"
@@ -31,7 +31,38 @@
 <script src="./assets/js/jsCycle.js"></script>
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/menu.js"></script>
-<script src="./assets/js/funcionesPaginasPrincipales.js"></script>
+<!-- <script src="./assets/js/funcionesPaginasPrincipales.js"></script> -->
+<script src="./assets/js/agenda.js"></script>
+
+<script type="text/javascript" src="./assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxbuttons.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxscrollbar.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxdata.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxdate.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxscheduler.js"></script>
+<script type="text/javascript"
+	src="./assets/jqwidgets/jqxscheduler.api.js"></script>
+<script type="text/javascript"
+	src="./assets/jqwidgets/jqxdatetimeinput.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxmenu.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxcalendar.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxtooltip.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxwindow.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxcheckbox.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxlistbox.js"></script>
+<script type="text/javascript"
+	src="./assets/jqwidgets/jqxdropdownlist.js"></script>
+<script type="text/javascript"
+	src="./assets/jqwidgets/jqxnumberinput.js"></script>
+<script type="text/javascript"
+	src="./assets/jqwidgets/jqxradiobutton.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxinput.js"></script>
+<script type="text/javascript"
+	src="./assets/jqwidgets/globalization/globalize.js"></script>
+<script type="text/javascript"
+	src="./assets/jqwidgets/globalization/globalize.culture.de-DE.js"></script>
+
 <!-- SmartMenus jQuery plugin -->
 <script type="text/javascript" src="./assets/js/jquery.smartmenus.js"></script>
 
@@ -53,17 +84,18 @@
 							<a href="#"><img alt="" src="./images/fisioLogo3.png"></a>
 						</h2>
 						<h1 class="style=float:right">
-							<a href="#" title="cerrar sesion"><img alt="" src="./images/logout.png"></a>
+							<a href="#" title="cerrar sesion"><img alt=""
+								src="./images/logout.png"></a>
 						</h1>
 						<h2 class="">
 							<a>Bienvenido: ${nombreUsuario}</a>
 						</h2>
 						<!-- Sample menu definition -->
 						<ul id="main-menu" class="sm sm-blue">
-<%-- 							<c:if test = "${1==1}"> --%>
-								<li><a href="#" >Inicio</a></li>
+							<%-- 							<c:if test = "${1==1}"> --%>
+							<li><a href="#">Inicio</a></li>
 
-<%-- 							</c:if> --%>
+							<%-- 							</c:if> --%>
 							<li><a href="#">Agenda</a></li>
 							<li><a href="#">Pacientes</a></li>
 							<li><a href="#">Estadisticas</a>
@@ -97,7 +129,12 @@
 		</div>
 		<!-- CONTENIDO -->
 		<div id="main">
-			<div class="container"></div>
+			<div class="container">
+				<!-- AGENDA -->
+				<div id="agenda" class='default'>
+					<div id="scheduler"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
