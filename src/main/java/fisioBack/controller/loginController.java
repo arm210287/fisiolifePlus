@@ -174,10 +174,11 @@ public class loginController {
 		Login login = new Login();
 		login.setNombreUsuario(nombreUsuario);
 		login.setClaveUsuario(claveUsuario);
-		boolean existe =false;
-		existe=loginService.checkLogin(login);
-		if(!existe){
+		String rolContectado ="";
+		 rolContectado = loginService.checkLogin(login);
+		if(rolContectado.equals("FRAN")||rolContectado.equals("FISIO")||rolContectado.equals("GERENT")){
 			model.addAttribute("nombreUsuario",login.getNombreUsuario());
+			model.addAttribute("rol",rolContectado);
 			return "inicio";
 		}
 		else{

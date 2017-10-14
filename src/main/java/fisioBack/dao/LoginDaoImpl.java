@@ -25,9 +25,10 @@ public class LoginDaoImpl implements LoginDao {
 	}
 
 	@Override
-    public boolean checkLogin(Login login){
+    public String checkLogin(Login login){
 			Session session = sessionFactory.openSession();
 			boolean userFound = true;
+			String resultadoRol ="";
 			//Query using Hibernate Query Language
 			String SQL_QUERY ="select r.tipo from "
 					+ "fisioBack.model.Login as l,"
@@ -39,10 +40,10 @@ public class LoginDaoImpl implements LoginDao {
 			query.setParameter(1,login.getClaveUsuario());
 			List list = query.list();
 			if(list!=null && list.size()>0){
-				userFound=false;
+				resultadoRol=list.get(0).toString();
 			}
 
 			session.close();
-			return userFound;              
+			return resultadoRol;              
        }
 }

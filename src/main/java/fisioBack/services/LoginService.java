@@ -8,6 +8,6 @@ import fisioBack.model.Login;
 public interface LoginService {
 
 	
-	boolean checkLogin(Login login);
+	String checkLogin(Login login);
 	
 }

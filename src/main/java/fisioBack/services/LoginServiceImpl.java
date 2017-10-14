@@ -16,7 +16,7 @@ public class LoginServiceImpl implements LoginService{
 	LoginDao dao;
 
 	@Override
-	public boolean checkLogin(Login login) {
+	public String checkLogin(Login login) {
 		return dao.checkLogin(login);
 	}
 }

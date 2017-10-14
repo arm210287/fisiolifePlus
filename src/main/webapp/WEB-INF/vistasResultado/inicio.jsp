@@ -11,7 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="./assets/css/main.css" />
 <link rel="stylesheet" href="./assets/css/menu.css" />
-<link rel="stylesheet" href="./assets/jqwidgets/styles/jqx.base.css"	type="text/css" />
+<link rel="stylesheet" href="./assets/jqwidgets/styles/jqx.base.css"
+	type="text/css" />
 
 <!-- SmartMenus core CSS (required) -->
 <link href="./assets/css/sm-core-css.css" rel="stylesheet"
@@ -60,8 +61,9 @@
 <script type="text/javascript" src="./assets/jqwidgets/jqxinput.js"></script>
 <script type="text/javascript"
 	src="./assets/jqwidgets/globalization/globalize.js"></script>
+<script type="text/javascript" src="./assets/js/globalize.js"></script>
 <script type="text/javascript"
-	src="./assets/jqwidgets/globalization/globalize.culture.de-DE.js"></script>
+	src="./assets/js/globalize.culture.es-ES.js"></script>
 
 <!-- SmartMenus jQuery plugin -->
 <script type="text/javascript" src="./assets/js/jquery.smartmenus.js"></script>
@@ -92,34 +94,54 @@
 						</h2>
 						<!-- Sample menu definition -->
 						<ul id="main-menu" class="sm sm-blue">
-							<%-- 							<c:if test = "${1==1}"> --%>
+							<c:set var="rol" scope="session" value="${rol}" />
+
 							<li><a href="#">Inicio</a></li>
 
-							<%-- 							</c:if> --%>
 							<li><a href="#">Agenda</a></li>
 							<li><a href="#">Pacientes</a></li>
 							<li><a href="#">Estadisticas</a>
 								<ul>
-									<li><a href="">Fidelizacion</a></li>
-									<li><a href="">Semanal</a></li>
+									<c:choose>
+										<c:when test="${rol eq 'FISIO'}">
+											<li><a href="#" class="disabled">Fidelizacion</a></li>
+											<li><a href="#" class="disabled">Semanal</a></li>
+										</c:when>
+										<c:otherwise>
+											<li><a href="#">Fidelizacion</a></li>
+											<li><a href="#">Semanal</a></li>
+										</c:otherwise>
+									</c:choose>
 								</ul></li>
 							<li><a href="#">Contabilidad</a>
 								<ul>
-									<li><a href="#" class="disabled">Facturas</a></li>
-									<li><a href="#">Inventario</a></li>
+									<c:choose>
+										<c:when test="${rol eq 'FISIO'}">
+											<li><a href="#" class="disabled">Facturas</a></li>
+											<li><a href="#" class="disabled">Inventario</a></li>
+											<li><a href="#" class="disabled">Balances</a>
+												<ul>
+													<li><a href="#" class="disabled">Trimestral</a></li>
+													<li><a href="#" class="disabled">Semestral</a></li>
+													<li><a href="#" class="disabled">Anual</a></li>
 
-									<!-- 									<li><a href="#" class="disabled">Disabled menu item</a></li> -->
-									<li><a href="#">Balances</a>
-										<ul>
-											<li><a href="#">Trimestral</a></li>
-											<li><a href="#">Semestral</a></li>
-											<li><a href="#">Anual</a></li>
+												</ul></li>
+										</c:when>
+										<c:otherwise>
+											<li><a href="#">Facturas</a></li>
+											<li><a href="#">Inventario</a></li>
+											<li><a href="#">Balances</a>
+												<ul>
+													<li><a href="#">Trimestral</a></li>
+													<li><a href="#">Semestral</a></li>
+													<li><a href="#">Anual</a></li>
 
-										</ul></li>
+												</ul></li>
+										</c:otherwise>
+									</c:choose>
 								</ul></li>
-							<li><a href="">Notificaciones</a>
+							<li><a href="#">Notificaciones</a>
 						</ul>
-
 						</nav>
 
 
