@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 <html>
 <head>
@@ -35,39 +37,50 @@
 								<div class="logo">
 									<img alt="" src="./images/fisioLogo3.png">
 								</div>
-									<a href="index.jsp" class="current-page-item">Inicio</a> 
-									<a onclick="load(1);return false;" href="#">Quienes Somos</a> 
-									<a onclick="load(2);return false;" href="#">Servicios</a>
-									<a onclick="load(3);return false;" href="#">Tarifas</a> 
-									<a href="#">Cita Online</a>
-									<a href="#">Contacto</a>
-									
-									<div id="bar">
-								        <div id="container">
-								            <!-- Login Starts Here -->
-								            <div id="loginContainer">
-												 <a href="" id="loginButton" onclick=""><img  alt="" src="./images/login.png"></a>
-<!-- 								                <div style="clear:both"></div> -->
-								                <div id="loginBox">       
-								                <c:url var="loginUrl" value="/login" />         
-								                    <form id="loginForm" action="${loginUrl}" method="post">
-								                        <fieldset id="body">
-								                            <fieldset>
-								                                <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="usuario" />
-								                            </fieldset>
-								                            <fieldset>
-								                                <input type="password" name="claveUsuario" id="claveUsuario" placeholder="contraseï¿½a"/>
-								                            </fieldset>
-								                            <input type="submit" id="login" value="Entrar" />
-								                            <label for="checkbox"><input type="checkbox" id="checkbox" />Recuerdame</label>
-								                               <label><a href="#">olvidaste tu contraseÃ±a?</a></label>  
-								                        </fieldset>
-								                    </form>
-								                </div>
-								            </div>
-								            <!-- Login Ends Here -->
-								        </div>
-								    </div>
+								<a href="index.jsp" class="current-page-item">Inicio</a> <a
+									onclick="load(1);return false;" href="#">Quienes Somos</a> <a
+									onclick="load(2);return false;" href="#">Servicios</a> <a
+									onclick="load(3);return false;" href="#">Tarifas</a> <a
+									href="#">Cita Online</a> <a href="#">Contacto</a>
+
+								<div id="bar">
+									<div id="container">
+										<!-- Login Starts Here -->
+										<div id="Form">
+											<a href="" id="loginButton" onclick=""><img alt=""
+												src="./images/login.png"></a>
+											<div id="loginBox">
+												<c:url var="loginUrl" value="/login" />
+												<c:choose>
+													<c:when test="${accesoDenegado eq 'S'}">
+														<script type="text/javascript">
+															alert("ERROR");
+														</script>
+													</c:when>
+													<c:otherwise>
+
+													</c:otherwise>
+												</c:choose>
+												<form id="loginForm" action="${loginUrl}" method="post">
+													<fieldset id="body">
+														<fieldset>
+															<input type="text" name="nombreUsuario"
+																id="nombreUsuario" placeholder="usuario" />
+														</fieldset>
+														<fieldset>
+															<input type="password" name="claveUsuario"
+																id="claveUsuario" placeholder="contraseña" />
+														</fieldset>
+
+														<input type="submit" id="login" value="Entrar" /> <label><a
+															href="#">olvidaste tu contraseña?</a></label>
+													</fieldset>
+												</form>
+											</div>
+										</div>
+										<!-- Login Ends Here -->
+									</div>
+								</div>
 							</nav>
 						</header>
 
@@ -75,7 +88,7 @@
 				</div>
 			</div>
 		</div>
-	
+
 		<div id="banner-wrapper">
 			<div class="container">
 
@@ -114,12 +127,11 @@
 
 					</div>
 					<div class="4u 12u(mobile)">
-
+						<h2>Horarios</h2>
 						<section>
-							<h2>Horarios</h2>
 							<table border="1" id="mitabla">
 								<tr>
-									<th>Dï¿½a</th>
+									<th>Día</th>
 									<th>Hora</th>
 								</tr>
 								<tbody>
@@ -324,4 +336,4 @@
 	</div>
 
 </body>
-</html> 
+</html>

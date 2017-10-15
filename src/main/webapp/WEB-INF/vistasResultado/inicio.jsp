@@ -85,8 +85,10 @@
 						<h2 class="nav-brand">
 							<a href="#"><img alt="" src="./images/fisioLogo3.png"></a>
 						</h2>
+						<c:url var="logoutUrl" value="/logout" />
+
 						<h1 class="style=float:right">
-							<a href="#" title="cerrar sesion"><img alt=""
+							<a href="index.jsp" title="cerrar sesion"><img alt=""
 								src="./images/logout.png"></a>
 						</h1>
 						<h2 class="">
@@ -96,10 +98,31 @@
 						<ul id="main-menu" class="sm sm-blue">
 							<c:set var="rol" scope="session" value="${rol}" />
 
-							<li><a href="#">Inicio</a></li>
-
-							<li><a href="#">Agenda</a></li>
-							<li><a href="#">Pacientes</a></li>
+							<li><a href="#" onclick="loadMenu('I');return false;">Inicio</a></li>
+							<c:choose>
+								<c:when test="${rol eq 'FISIO' or rol eq 'FRAN'}">
+									<li><a href="#">Clinicas</a>
+										<ul>
+											<li><a href="#" class="disabled">Vista Alegre</a></li>
+											<li><a href="#" class="disabled">Cuzco</a></li>
+											<li><a href="#" class="disabled">Mostoles</a></li>
+										</ul></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="#">Clinicas</a>
+										<ul>
+											<li><a href="#">Vista Alegre</a></li>
+											<li><a href="#">Cuzco</a></li>
+											<li><a href="#">Mostoles</a></li>
+										</ul></li>
+								</c:otherwise>
+							</c:choose>
+							<li><a href="#" onclick="loadMenu('Ag');return false;">Agenda</a></li>
+							<li><a href="#">Pacientes</a>
+								<ul>
+									<li><a href="#" onclick="loadMenu('A');return false;">Añadir</a></li>
+									<li><a href="#">Consultar</a></li>
+								</ul></li>
 							<li><a href="#">Estadisticas</a>
 								<ul>
 									<c:choose>
@@ -152,14 +175,19 @@
 		<!-- CONTENIDO -->
 		<div id="main">
 			<div class="container">
-				<!-- AGENDA -->
-				<div id="agenda" class='default'>
-					<div id="scheduler"></div>
+				<div id="opcionesMenu">
+					<!-- AGENDA -->
+					<div id="agenda" class='default'>
+						<div id="scheduler"></div>
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
 
+
+</body>
 	<!-- PIE DE LA PAGINA -->
 	<footer>
 
@@ -181,5 +209,4 @@
 		</div>
 	</div>
 	</footer>
-</body>
 </html>
