@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	cargaAgenda();
 });
-function cargaAgenda(){
+function cargaAgenda() {
 	var appointments = new Array();
 
 	var appointment1 = {
@@ -125,30 +125,239 @@ function cargaAgenda(){
 		},
 		views : [ 'dayView', 'weekView', 'monthView' ]
 	});
+	
+//EVENTOS DE LA AGENDA
+    $("#scheduler").on('appointmentDelete', function (event) {
+        var args = event.args;
+        var appointment = args.appointment;
+        console.log("appointmentDelete se elimino : "+appointment.subject);
+    });
+
+    $("#scheduler").on('appointmentAdd', function (event) {
+        var args = event.args;
+        var appointment = args.appointment;
+        console.log("appointmentAdd is raised");
+    });
+
+    $("#scheduler").on('appointmentDoubleClick', function (event) {
+        var args = event.args;
+        var appointment = args.appointment;
+        // appointment fields
+        // originalData - the bound data.
+        // from - jqxDate object which returns when appointment starts.
+        // to - jqxDate objet which returns when appointment ends.
+        // status - String which returns the appointment's status("busy", "tentative", "outOfOffice", "free", "").
+        // resourceId - String which returns the appointment's resouzeId
+        // hidden - Boolean which returns whether the appointment is visible.
+        // allDay - Boolean which returns whether the appointment is allDay Appointment.
+        // resiable - Boolean which returns whether the appointment is resiable Appointment.
+        // draggable - Boolean which returns whether the appointment is resiable Appointment.
+        // id - String or Number which returns the appointment's ID.
+        // subject - String which returns the appointment's subject.
+        // location - String which returns the appointment's location.
+        // description - String which returns the appointment's description.
+        // tooltip - String which returns the appointment's tooltip.
+
+        $("#log").html("appointmentDoubleClick is raised");
+    });
+
+    $("#scheduler").on('cellClick', function (event) {
+        var args = event.args;
+        var cell = args.cell;
+       
+        console.log("cellClick is raised");
+    });
+
+    $("#scheduler").on('cellDoubleClick', function (event) {
+        var args = event.args;
+        var cell = args.cell;
+       
+        console.log("cellDoubleClick is raised");
+    });
+    
+    $("#scheduler").on('contextMenuOpen', function (event) {
+        var args = event.args;
+        var menu = args.menu;
+        var appointment = args.appointment;
+       
+        console.log("contextMenuOpen is raised");
+    });
+    
+    $("#scheduler").on('contextMenuClose', function (event) {
+        var args = event.args;
+        var menu = args.menu;
+        var appointment = args.appointment;
+       
+        console.log("contextMenuClose is raised");
+    });
+    
+    $("#scheduler").on('contextMenuItemClick', function (event) {
+        var args = event.args;
+        var menu = args.menu;
+        var appointment = args.appointment;
+        var item = args.item;
+       
+        console.log("contextMenuItemClick is raised");
+    });
+    
+    $("#scheduler").on('viewChange', function (event) {
+        var args = event.args;
+        var from = args.from;
+        var to = args.to;
+        var date = args.date;
+        console.log("viewChange is raised");
+    });
+
+    $("#scheduler").on('dateChange', function (event) {
+        var args = event.args;
+        var from = args.from;
+        var to = args.to;
+        var date = args.date;
+        console.log("dateChange is raised");
+    });
+    
+    $("#scheduler").on('contextMenuCreate', function (event) {
+        var args = event.args;
+        var menu = args.menu;
+        var appointment = args.appointment;
+        var item = args.item;
+       
+        console.log("contextMenuCreate is raised");
+    });
+    
+    $("#scheduler").on('editRecurrenceDialogOpen', function (event) {
+        var args = event.args;
+        var dialog = args.dialog;
+        var appointment = args.appointment;
+       
+        console.log("editRecurrenceDialogOpen is raised");
+    });
+    
+    $("#scheduler").on('editRecurrenceDialogClose', function (event) {
+        var args = event.args;
+        var dialog = args.dialog;
+        var appointment = args.appointment;
+       
+        console.log("editRecurrenceDialogClose is raised");
+    });
+    
+   $("#scheduler").on('editDialogCreate', function (event) {
+        var args = event.args;
+        var dialog = args.dialog;
+        var appointment = args.appointment;
+        var fields = args.fields;
+        
+        console.log("editDialogCreate is raised");
+    });
+    
+    $("#scheduler").on('editDialogOpen', function (event) {
+        var args = event.args;
+        var dialog = args.dialog;
+        var appointment = args.appointment;
+        var fields = args.fields;
+        
+        console.log("editDialogOpen is raised");
+    });
+    
+   $("#scheduler").on('editDialogClose', function (event) {
+        var args = event.args;
+        var dialog = args.dialog;
+        var appointment = args.appointment;
+        var fields = args.fields;
+        
+        console.log("editDialogClose is raised");
+    });
+    
+    
+    $("#scheduler").on('appointmentChange', function (event) {
+        var args = event.args;
+        var appointment = args.appointment;
+        // appointment fields
+        // originalData - the bound data.
+        // from - jqxDate object which returns when appointment starts.
+        // to - jqxDate objet which returns when appointment ends.
+        // status - String which returns the appointment's status("busy", "tentative", "outOfOffice", "free", "").
+        // resourceId - String which returns the appointment's resouzeId
+        // hidden - Boolean which returns whether the appointment is visible.
+        // allDay - Boolean which returns whether the appointment is allDay Appointment.
+        // resiable - Boolean which returns whether the appointment is resiable Appointment.
+        // draggable - Boolean which returns whether the appointment is resiable Appointment.
+        // id - String or Number which returns the appointment's ID.
+        // subject - String which returns the appointment's subject.
+        // location - String which returns the appointment's location.
+        // description - String which returns the appointment's description.
+        // tooltip - String which returns the appointment's tooltip.
+
+        console.log("appointmentChange is raised");
+    });    
+    
+        $("#scheduler").on('appointmentClick', function (event) {
+        var args = event.args;
+        var appointment = args.appointment;
+        // appointment fields
+        // originalData - the bound data.
+        // from - jqxDate object which returns when appointment starts.
+        // to - jqxDate objet which returns when appointment ends.
+        // status - String which returns the appointment's status("busy", "tentative", "outOfOffice", "free", "").
+        // resourceId - String which returns the appointment's resouzeId
+        // hidden - Boolean which returns whether the appointment is visible.
+        // allDay - Boolean which returns whether the appointment is allDay Appointment.
+        // resiable - Boolean which returns whether the appointment is resiable Appointment.
+        // draggable - Boolean which returns whether the appointment is resiable Appointment.
+        // id - String or Number which returns the appointment's ID.
+        // subject - String which returns the appointment's subject.
+        // location - String which returns the appointment's location.
+        // description - String which returns the appointment's description.
+        // tooltip - String which returns the appointment's tooltip.
+
+        console.log("appointmentClick is raised");
+    });    
+    
+        $("#scheduler").on('appointmentDoubleClick', function (event) {
+        var args = event.args;
+        var appointment = args.appointment;
+        // appointment fields
+        // originalData - the bound data.
+        // from - jqxDate object which returns when appointment starts.
+        // to - jqxDate objet which returns when appointment ends.
+        // status - String which returns the appointment's status("busy", "tentative", "outOfOffice", "free", "").
+        // resourceId - String which returns the appointment's resouzeId
+        // hidden - Boolean which returns whether the appointment is visible.
+        // allDay - Boolean which returns whether the appointment is allDay Appointment.
+        // resiable - Boolean which returns whether the appointment is resiable Appointment.
+        // draggable - Boolean which returns whether the appointment is resiable Appointment.
+        // id - String or Number which returns the appointment's ID.
+        // subject - String which returns the appointment's subject.
+        // location - String which returns the appointment's location.
+        // description - String which returns the appointment's description.
+        // tooltip - String which returns the appointment's tooltip.
+
+        console.log("appointmentDoubleClick is raised");
+    });   
+
 }
+
+
 function loadMenu(opcion) {
-	if (opcion == 'A'){
-//		$.ajax({
-//			 type: "POST",
-//			 url: "/fisiolifePlus/lista/",
-//			 data: "",
-//			 success: function(response){
-//			 $('#opcionesMenu').html(response);
-//			 $('#name').val('');
-//			 $('#education').val('');
-//			 },
-//			 error: function(e){
-//			 alert('Error: ' + e);
-//
-//			 }
-//		})
-		
+	if (opcion == 'A') {
+		// $.ajax({
+		// type: "POST",
+		// url: "/fisiolifePlus/lista/",
+		// data: "",
+		// success: function(response){
+		// $('#opcionesMenu').html(response);
+		// $('#name').val('');
+		// $('#education').val('');
+		// },
+		// error: function(e){
+		// alert('Error: ' + e);
+		//
+		// }
+		// })
+
 		$("#opcionesMenu").load("./vistas/registration.jsp");
-	}
-	else if (opcion == 'I' || opcion == 'Ag'){
+	} else if (opcion == 'I' || opcion == 'Ag') {
 		$("#opcionesMenu").load("./vistas/agenda.jsp");
 
 	}
 }
-	
-	
