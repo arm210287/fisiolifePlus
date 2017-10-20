@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="es">
 <head>
 <title>FisioLife Plus</title>
 <meta charset="utf-8" />
@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="./assets/css/main.css" />
 <link rel="stylesheet" href="./assets/css/menu.css" />
 <link rel="stylesheet" href="./assets/jqwidgets/styles/jqx.base.css"
+	type="text/css" />
+<link rel="stylesheet" href="./assets/jqwidgets/styles/jqx.black.css"
 	type="text/css" />
 
 <!-- SmartMenus core CSS (required) -->
@@ -61,12 +63,11 @@
 <script type="text/javascript" src="./assets/jqwidgets/jqxinput.js"></script>
 <script type="text/javascript"
 	src="./assets/jqwidgets/globalization/globalize.js"></script>
-<script type="text/javascript" src="./assets/js/globalize.js"></script>
 <script type="text/javascript"
-	src="./assets/js/globalize.culture.es-ES.js"></script>
-
+	src="./assets/jqwidgets/globalization/globalize.culture.es-ES.js"></script>
 <!-- SmartMenus jQuery plugin -->
-<script type="text/javascript" src="./assets/js/jquery.smartmenus.js"></script>
+	<script type="text/javascript" src="./assets/js/jquery.smartmenus.js">
+</script>
 
 
 </head>
@@ -179,7 +180,9 @@
 					<!-- AGENDA -->
 					<div id="agenda" class='default'>
 						<div id="scheduler"></div>
+
 					</div>
+					<!-- 					 <input type="button" value="Click Me" id='myButton' /> -->
 				</div>
 
 			</div>
@@ -188,25 +191,25 @@
 
 
 </body>
-	<!-- PIE DE LA PAGINA -->
-	<footer>
+<!-- PIE DE LA PAGINA -->
+<footer>
 
-	<div class="row">
-		<div class="12u">
+<div class="row">
+	<div class="12u">
 
-			<div id="copyright">
-				&copy; FisioLife Plus <a href="#"></a>
-			</div>
-			<div style="width: 8%; margin: 0 auto;">
-				<a href="https://www.facebook.com/FisioLifeVistaAlegre/"> <img
-					alt="" src="./images/facebook.png"></a> <a
-					href="https://www.instagram.com/fisiolifeva/"><img alt=""
-					src="./images/instagram.jpg"></a> <a
-					href="https://www.twitter.com/fisiolifeva"><img alt=""
-					src="./images/twitter.png"></a>
-			</div>
-
+		<div id="copyright">
+			&copy; FisioLife Plus <a href="#"></a>
 		</div>
+		<div style="width: 8%; margin: 0 auto;">
+			<a href="https://www.facebook.com/FisioLifeVistaAlegre/"> <img
+				alt="" src="./images/facebook.png"></a> <a
+				href="https://www.instagram.com/fisiolifeva/"><img alt=""
+				src="./images/instagram.jpg"></a> <a
+				href="https://www.twitter.com/fisiolifeva"><img alt=""
+				src="./images/twitter.png"></a>
+		</div>
+
 	</div>
-	</footer>
+</div>
+</footer>
 </html>

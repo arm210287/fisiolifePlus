@@ -18,6 +18,7 @@
 	<mvc:resources mapping="/images/**" location="/images/" />
 
 	<mvc:resources mapping="/vistas/**" location="/vistas/" />
+	<mvc:resources mapping="/jqwidgets/**" location="/jqwidgets/" />
 
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />

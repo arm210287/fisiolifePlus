@@ -8,7 +8,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Registro Paciente</title>
-<link rel="stylesheet" href="./assets/css/registroPaciente.css" /></head>
+<link rel="stylesheet" href="./assets/css/formulario.css" /></head>
 
 <body>
 <div class="container_registro">
