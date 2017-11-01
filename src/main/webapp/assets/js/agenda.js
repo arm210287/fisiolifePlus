@@ -1,18 +1,17 @@
 $(document).ready(function() {
-//	   $("#scheduler").jqx-scheduler(
-//		       { width: '120px', height: '35px', theme: 'black' }
-//		       );
 	cargaAgenda();
+
 });
+
 function cargaAgenda() {
 	var appointments = new Array();
 
 	var appointment1 = {
 		id : "id1",
-		description : "George brings projector for presentations.",
+		description : "",
 		location : "",
-		subject : "Quarterly Project Review Meeting",
-		calendar : "Room 1",
+		subject : "Alfredo Rondon",
+		calendar : "Fisioterapia",
 		start : new Date(2017, 10, 23, 9, 0, 0),
 		end : new Date(2017, 10, 23, 16, 0, 0)
 	}
@@ -21,8 +20,8 @@ function cargaAgenda() {
 		id : "id2",
 		description : "",
 		location : "",
-		subject : "IT Group Mtg.",
-		calendar : "Room 2",
+		subject : "Alejandro",
+		calendar : "Fisioterapia",
 		start : new Date(2017, 10, 24, 10, 0, 0),
 		end : new Date(2017, 10, 24, 15, 0, 0)
 	}
@@ -31,8 +30,8 @@ function cargaAgenda() {
 		id : "id3",
 		description : "",
 		location : "",
-		subject : "Course Social Media",
-		calendar : "Room 3",
+		subject : "Esther",
+		calendar : "Pilates",
 		start : new Date(2017, 10, 27, 11, 0, 0),
 		end : new Date(2017, 10, 27, 13, 0, 0)
 	}
@@ -41,8 +40,8 @@ function cargaAgenda() {
 		id : "id4",
 		description : "",
 		location : "",
-		subject : "New Projects Planning",
-		calendar : "Room 2",
+		subject : "Carlos",
+		calendar : "Pilates",
 		start : new Date(2017, 10, 23, 16, 0, 0),
 		end : new Date(2017, 10, 23, 18, 0, 0)
 	}
@@ -51,8 +50,8 @@ function cargaAgenda() {
 		id : "id5",
 		description : "",
 		location : "",
-		subject : "Interview with James",
-		calendar : "Room 1",
+		subject : "Ana",
+		calendar : "Podologia",
 		start : new Date(2017, 10, 25, 15, 0, 0),
 		end : new Date(2017, 10, 25, 17, 0, 0)
 	}
@@ -61,18 +60,28 @@ function cargaAgenda() {
 		id : "id6",
 		description : "",
 		location : "",
-		subject : "Interview with Nancy",
-		calendar : "Room 4",
+		subject : "Sergio",
+		calendar : "Masaje Relajente",
 		start : new Date(2017, 10, 26, 14, 0, 0),
 		end : new Date(2017, 10, 26, 16, 0, 0)
 	}
+	var appointment7 = {
+			id : "id7",
+			description : "",
+			location : "",
+			subject : "Alexandra",
+			calendar : "Reflexologia",
+			start : new Date(2017, 10, 26, 14, 0, 0),
+			end : new Date(2017, 10, 26, 16, 0, 0)
+		}
 	appointments.push(appointment1);
 	appointments.push(appointment2);
 	appointments.push(appointment3);
 	appointments.push(appointment4);
 	appointments.push(appointment5);
 	appointments.push(appointment6);
-
+	appointments.push(appointment7);
+	
 	// prepare the data
 	var source = {
 		dataType : "array",
@@ -112,6 +121,7 @@ function cargaAgenda() {
 		ready : function() {
 			$("#scheduler").jqxScheduler('ensureAppointmentVisible', 'id1');
 		},
+		//TRADUCCION 
         localization: {
             // separator of parts of a date (e.g. '/' in 11/05/1955)
             '/': "/",
@@ -190,7 +200,7 @@ function cargaAgenda() {
             loadString: "Cargando...",
             clearString: "Limpiar",
             todayString: "Hoy",
-            dayViewString: "Día",
+            dayViewString: "Dia",
             weekViewString: "Semana",
             monthViewString: "Mes",
             timelineDayViewString: "Zeitleiste Day",
@@ -201,20 +211,20 @@ function cargaAgenda() {
             editRecurringAppointmentDialogContentString: "Wollen Sie nur dieses eine Vorkommen oder die Serie zu bearbeiten ?",
             editRecurringAppointmentDialogOccurrenceString: "Vorkommen bearbeiten",
             editRecurringAppointmentDialogSeriesString: "Bearbeiten Die Serie",
-            editDialogTitleString: "Termin bearbeiten",
+            editDialogTitleString: "Crear Cita",
             editDialogCreateTitleString: "Crear Cita",
-            contextMenuEditAppointmentString: "Termin bearbeiten",
+            contextMenuEditAppointmentString: "Editar Cita",
             contextMenuCreateAppointmentString: "Crear Cita",
             editDialogSubjectString: "Nombre",
             editDialogLocationString: "Direccion",
             editDialogFromString: "Desde",
             editDialogToString: "Hasta",
-            editDialogAllDayString: "Den ganzen Tag",
-            editDialogExceptionsString: "Ausnahmen",
-            editDialogResetExceptionsString: "ZurÃ¼cksetzen auf Speichern",
-            editDialogDescriptionString: "Bezeichnung",
-            editDialogResourceIdString: "Cabina",
-            editDialogStatusString: "Status",
+            editDialogAllDayString: "Todo el día",
+            editDialogExceptionsString: "Error",
+            editDialogResetExceptionsString: "Error en las espesificaciones",
+            editDialogDescriptionString: "Observaciones",
+            editDialogResourceIdString: "Especialidad",
+            editDialogStatusString: "Continuidad",
             editDialogColorString: "Estado",
             editDialogColorPlaceHolderString: "Seleccione",
             editDialogTimeZoneString: "Zona Horaria",
@@ -222,16 +232,16 @@ function cargaAgenda() {
             editDialogSaveString: "Guardar",
             editDialogDeleteString: "Borrar",
             editDialogCancelString: "Cancelar",
-            editDialogRepeatString: "Wiederholen",
+            editDialogRepeatString: "Repetir",
             editDialogRepeatEveryString: "Wiederholen alle",
             editDialogRepeatEveryWeekString: "woche(n)",
             editDialogRepeatEveryYearString: "Jahr (en)",
             editDialogRepeatEveryDayString: "Tag (e)",
-            editDialogRepeatNeverString: "Nie",
-            editDialogRepeatDailyString: "TÃ¤glich",
-            editDialogRepeatWeeklyString: "WÃ¶chentlich",
-            editDialogRepeatMonthlyString: "Monatlich",
-            editDialogRepeatYearlyString: "JÃ¤hrlich",
+            editDialogRepeatNeverString: "Nunca",
+            editDialogRepeatDailyString: "Diario",
+            editDialogRepeatWeeklyString: "Semanal",
+            editDialogRepeatMonthlyString: "Mensual",
+            editDialogRepeatYearlyString: "Anual",
             editDialogRepeatEveryMonthString: "Mes (n)",
             editDialogRepeatEveryMonthDayString: "Día",
             editDialogRepeatFirstString: "erste",
@@ -256,6 +266,112 @@ function cargaAgenda() {
                 outOfOffice: "Anual"
             }
         },
+        //EDITAR EL DIALOGO PARA CREAR CITA
+        editDialogCreate: function (dialog, fields, editAppointment) {
+            // oculta los campos
+            fields.repeatContainer.hide();
+            fields.timeZoneContainer.hide();
+            fields.allDayContainer.hide();
+            fields.locationContainer.hide();
+            
+            //edita titulo de los campos
+            fields.resourceLabel.html("Especialidad");
+
+            // add custom print button.
+            printButton = $("<button style='margin-left: 5px; float:right;'>Imprimir</button>");
+            fields.buttons.append(printButton);
+            printButton.jqxButton({ theme: this.theme });
+            printButton.click(function () {
+                var appointment = editAppointment;
+                if (!appointment)
+                    return;
+
+                var appointmentContent =
+                    "<table class='printTable'>" +
+                        "<tr>" +
+                            "<td class='label'>Nombre</td>" +
+                            "<td>" + fields.subject.val() + "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                            "<td class='label'>Desde</td>" +
+                            "<td>" + fields.from.val() + "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                            "<td class='label'>Hasta</td>" +
+                            "<td>" + fields.to.val() + "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                            "<td class='label'>Especialidad</td>" +
+                            "<td>" + fields.resource.val() + "</td>" +
+                        "</tr>"
+                   + "</table>";
+
+                var newWindow = window.open('', '', 'width=800, height=500'),
+                document = newWindow.document.open(),
+                pageContent =
+                    '<!DOCTYPE html>\n' +
+                    '<html>\n' +
+                    '<head>\n' +
+                       '<meta charset="utf-8" />\n' +
+                       '<title>FisioLife Plus Vista Alegre</title>\n' +
+                        '<style>\n' +
+                         '.printTable {\n' +
+                            'border-color: #aaa;\n' +
+                            '}\n' +
+                         '.printTable .label {\n' +
+                            'font-weight: bold;\n' +
+                            '}\n' +
+                         '.printTable td{\n' +
+                            'padding: 4px 3px;\n' +
+                            'border: 1px solid #DDD;\n' +
+                            'vertical-align: top;\n' +
+                            '}\n' +
+                       '</style>' +
+                   '</head>\n' +
+                  '<body>\n' + appointmentContent + '\n</body>\n</html>';
+                try
+                {
+                    document.write(pageContent);
+                    document.close();
+                }
+                catch (error) {
+                }
+                newWindow.print();
+            });
+        },
+        /**
+         * called when the dialog is opened. Returning true as a result disables the built-in handler.
+         * @param {Object} dialog - jqxWindow's jQuery object.
+         * @param {Object} fields - Object with all widgets inside the dialog.
+         * @param {Object} the selected appointment instance or NULL when the dialog is opened from cells selection.
+         */
+        editDialogOpen: function (dialog, fields, editAppointment) {
+            if (!editAppointment && printButton) {
+                printButton.jqxButton({ disabled: true });
+            }
+            else if (editAppointment && printButton) {
+                printButton.jqxButton({ disabled: false });
+            }
+        },
+        /**
+         * called when the dialog is closed.
+         * @param {Object} dialog - jqxWindow's jQuery object.
+         * @param {Object} fields - Object with all widgets inside the dialog.
+         * @param {Object} the selected appointment instance or NULL when the dialog is opened from cells selection.
+         */
+        editDialogClose: function (dialog, fields, editAppointment) {
+        },
+        /**
+        * called when a key is pressed while the dialog is on focus. Returning true or false as a result disables the built-in keyDown handler.
+        * @param {Object} dialog - jqxWindow's jQuery object.
+        * @param {Object} fields - Object with all widgets inside the dialog.
+        * @param {Object} the selected appointment instance or NULL when the dialog is opened from cells selection.
+        * @param {jQuery.Event Object} the keyDown event.
+        */
+        editDialogKeyDown: function (dialog, fields, editAppointment, event) {
+
+        },
+
 		resources : {
 			colorScheme : "scheme05",
 			dataField : "calendar",
@@ -270,7 +386,12 @@ function cargaAgenda() {
 			subject : "subject",
 			resourceId : "calendar"
 		},
-		views : [ 'dayView', 'weekView', 'monthView' ]
+		views:
+			[
+			{ type: "dayView", showWeekends: true, timeRuler: { scaleStartHour: 9, scaleEndHour: 21 } },
+			{ type: "weekView", showWeekends: true, timeRuler: { scaleStartHour: 9, scaleEndHour: 21 } },
+			'monthView'
+			]
 	});
 	
 //EVENTOS DE LA AGENDA

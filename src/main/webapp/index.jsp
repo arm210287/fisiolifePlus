@@ -10,6 +10,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="./assets/css/main.css" />
+<link rel="stylesheet" href="./assets/css/formulario.css" />
+</head>
 
 
 <!-- Scripts -->
@@ -42,7 +44,7 @@
 									onclick="load(2);return false;" href="#">Servicios</a> <a
 									onclick="load(3);return false;" href="#">Tarifas</a> <a
 									onclick="loadCita();return false;" href="#">Cita Online</a> <a
-									href="#">Contacto</a>
+									onclick="loadContacto();return false;" href="#">Contacto</a>
 
 								<div id="bar">
 									<div id="container">
@@ -52,29 +54,20 @@
 												src="./images/login.png"></a>
 											<div id="loginBox">
 												<c:url var="loginUrl" value="/login" />
-												<c:choose>
-													<c:when test="${accesoDenegado eq 'S'}">
-														<script type="text/javascript">
-															alert("ERROR");
-														</script>
-													</c:when>
-													<c:otherwise>
-
-													</c:otherwise>
-												</c:choose>
 												<form id="loginForm" action="${loginUrl}" method="post">
 													<fieldset id="body">
 														<fieldset>
-															<input type="text" name="nombreUsuario"
-																id="nombreUsuario" placeholder="usuario" />
+															<input type="text" name="nombreUsuario" id="nombreUsuario"
+																placeholder="usuario" />
 														</fieldset>
 														<fieldset>
-															<input type="password" name="claveUsuario"
-																id="claveUsuario" placeholder="contraseña" />
+															<input type="password" name="claveUsuario"	id="claveUsuario"
+															 placeholder="contraseña" />
+															
 														</fieldset>
 
 														<input type="submit" id="login" value="Entrar" /> <label><a
-															href="#">olvidaste tu contraseña?</a></label>
+															href="#"><span>olvidaste tu contraseña?</span></a></label>
 													</fieldset>
 												</form>
 											</div>

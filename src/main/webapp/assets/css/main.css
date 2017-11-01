@@ -1759,7 +1759,7 @@ table#mitabla td {
 /* Login Box */
 #loginBox {
     position:absolute;
-    top:34px;
+    top:20px;
     right:0;
     display:none;
     z-index:29;
@@ -1882,4 +1882,10 @@ input:focus {
 .jqx-layout-group-auto-hide-content-vertical
 {
     width: 200px;
+}
+.error-msg {
+	color: red;
+}
+.success-msg {
+	color: green;
 }
