@@ -88,13 +88,14 @@
 						</h2>
 						<c:url var="logoutUrl" value="/logout" />
 
-						<h1 class="style=float:right">
+						<p class="style=float:right">
 							<a href="index.jsp" title="cerrar sesion"><img alt=""
 								src="./images/logout.png"></a>
-						</h1>
-						<h2 class="">
+						</p>
+						<p class="">
 							<a>Bienvenido: ${nombreUsuario}</a>
-						</h2>
+						</p>
+						
 						<!-- Sample menu definition -->
 						<ul id="main-menu" class="sm sm-blue">
 							<c:set var="rol" scope="session" value="${rol}" />

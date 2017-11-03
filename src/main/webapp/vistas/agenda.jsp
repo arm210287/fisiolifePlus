@@ -39,6 +39,7 @@
 
 <script type="text/javascript" src="./assets/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="./assets/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxdatetimeinput.js"></script>
 <script type="text/javascript" src="./assets/jqwidgets/jqxbuttons.js"></script>
 <script type="text/javascript" src="./assets/jqwidgets/jqxscrollbar.js"></script>
 <script type="text/javascript" src="./assets/jqwidgets/jqxdata.js"></script>

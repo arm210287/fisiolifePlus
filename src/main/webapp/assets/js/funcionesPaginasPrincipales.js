@@ -1,5 +1,8 @@
 $(document).ready(function() {
-	$('.mi-slider').unslider();
+	//banner de fotos
+	$('.mi-slider').unslider(); 
+	//mapa con ubicacione
+	$('#map').load("./vistas/mapa.html");
 
 });
 
@@ -8,8 +11,13 @@ function load(numeroPag) {
 };
 
 function loadCita() {
-	$("#contenido").load("./vistas/citaOnline.jsp");
+	$("#slider").load("./vistas/citaOnline.html");
 };
+
+function loadContacto() {
+	$("#slider").load("./vistas/formularioContacto.html");
+};
+
 
 function logout() {
 	$("#body").load("index.jsp");
@@ -21,6 +29,5 @@ function login() {
 			"claveUsuario=" + $('#claveUsuario').val());
 }
 
-function loadContacto() {
-	$("#contenido").load("./vistas/formularioContacto.jsp");
-};
+  
+

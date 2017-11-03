@@ -10,12 +10,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="./assets/css/main.css" />
-<link rel="stylesheet" href="./assets/css/formulario.css" />
+<!-- <link rel="stylesheet" href="./assets/css/formulario.css" /> -->
 </head>
 
 
 <!-- Scripts -->
 <script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/jquery-ui.min.js"></script>
 <script src="./assets/js/skel.min.js"></script>
 <script src="./assets/js/unslider.js"></script>
 <script src="./assets/js/skel-viewport.min.js"></script>
@@ -25,6 +26,29 @@
 <script src="./assets/js/funcionesPaginasPrincipales.js"></script>
 <script src="./assets/js/login.js"></script>
 
+<script type="text/javascript" src="./assets/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxdatetimeinput.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxbuttons.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxscrollbar.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxdata.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxdate.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxscheduler.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxscheduler.api.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxdatetimeinput.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxmenu.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxcalendar.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxtooltip.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxwindow.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxcheckbox.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxlistbox.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxdropdownlist.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxnumberinput.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxradiobutton.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxinput.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/globalization/globalize.js"></script>
+<script type="text/javascript"src="./assets/jqwidgets/globalization/globalize.culture.es-ES.js"></script>
+<!-- SmartMenus jQuery plugin -->
+<script type="text/javascript" src="./assets/js/jquery.smartmenus.js"></script>
 
 </head>
 <body>
@@ -40,11 +64,11 @@
 									<img alt="" src="./images/fisioLogo3.png">
 								</div>
 								<a href="index.jsp" class="current-page-item">Inicio</a> <a
-									onclick="load(1);return false;" href="#">Quienes Somos</a> <a
-									onclick="load(2);return false;" href="#">Servicios</a> <a
-									onclick="load(3);return false;" href="#">Tarifas</a> <a
-									onclick="loadCita();return false;" href="#">Cita Online</a> <a
-									onclick="loadContacto();return false;" href="#">Contacto</a>
+									onclick="load(1);" href="#">Quienes Somos</a> <a
+									onclick="load(2);" href="#">Servicios</a> <a
+									onclick="load(3);" href="#">Tarifas</a> <a
+									onclick="loadCita();" href="#">Cita Online</a> <a
+									onclick="loadContacto();" href="#">Contacto</a>
 
 								<div id="bar">
 									<div id="container">
@@ -106,21 +130,18 @@
 			</div>
 			<div id="main">
 				<div class="container">
+					<div id ="contenido_encuentra_hora">
+					
 					<div class="row main-row">
 						<div class="4u 12u(mobile)">
-
-							<section>
 								<h2>Encuentranos!</h2>
-								<div id="map">
-									<iframe
-										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.842180119404!2d-3.7373687849540373!3d40.39019027936817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42278d17e2c2f7%3A0xd8a5890ce435c3f2!2sAv.+de+Ntra.+Sra.+de+Valvanera%2C+2%2C+28025+Madrid!5e0!3m2!1ses!2ses!4v1483902066682"
-										width="400" height="300" frameborder="0" style="border: 0"
-										allowfullscreen></iframe>
-								</div>
-							</section>
+								<section>	
+									<div id="map">
+									</div>
+								</section>							
 
 						</div>
-						<div class="4u 12u(mobile)">
+						<div class="4u 12u">
 							<h2>Horarios</h2>
 							<section>
 								<table border="1" id="mitabla">
@@ -157,10 +178,9 @@
 								</table>
 							</section>
 
+							</div>
 						</div>
-
 					</div>
-
 				</div>
 			</div>
 		</div>
