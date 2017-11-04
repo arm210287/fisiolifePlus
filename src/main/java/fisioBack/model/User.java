@@ -55,7 +55,8 @@ public class User implements Serializable{
 	@Column(name="ROL", nullable=false)
 	private Rol rol = new Rol();
 	
-
+	@Column(name="fk_id_clinica", nullable=false)
+	private String fkClinica ;
 
 
 	public Integer getIdUsuario() {
@@ -136,6 +137,14 @@ public class User implements Serializable{
 
 	public void setRol(Rol rol) {
 		this.rol = rol;
+	}
+
+	public String getFkClinica() {
+		return fkClinica;
+	}
+
+	public void setFkClinica(String fkClinica) {
+		this.fkClinica = fkClinica;
 	}
 	
 }

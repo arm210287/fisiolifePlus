@@ -1,87 +1,152 @@
 $(document).ready(function() {
-	cargaAgenda();
+	datosAgenda();
 
 });
 
-function cargaAgenda() {
-	var appointments = new Array();
-
-	var appointment1 = {
-		id : "id1",
-		description : "",
-		location : "",
-		subject : "Alfredo Rondon",
-		calendar : "Fisioterapia",
-		start : new Date(2017, 10, 23, 9, 0, 0),
-		end : new Date(2017, 10, 23, 16, 0, 0)
-	}
-
-	var appointment2 = {
-		id : "id2",
-		description : "",
-		location : "",
-		subject : "Alejandro",
-		calendar : "Fisioterapia",
-		start : new Date(2017, 10, 24, 10, 0, 0),
-		end : new Date(2017, 10, 24, 15, 0, 0)
-	}
-
-	var appointment3 = {
-		id : "id3",
-		description : "",
-		location : "",
-		subject : "Esther",
-		calendar : "Pilates",
-		start : new Date(2017, 10, 27, 11, 0, 0),
-		end : new Date(2017, 10, 27, 13, 0, 0)
-	}
-
-	var appointment4 = {
-		id : "id4",
-		description : "",
-		location : "",
-		subject : "Carlos",
-		calendar : "Pilates",
-		start : new Date(2017, 10, 23, 16, 0, 0),
-		end : new Date(2017, 10, 23, 18, 0, 0)
-	}
-
-	var appointment5 = {
-		id : "id5",
-		description : "",
-		location : "",
-		subject : "Ana",
-		calendar : "Podologia",
-		start : new Date(2017, 10, 25, 15, 0, 0),
-		end : new Date(2017, 10, 25, 17, 0, 0)
-	}
-
-	var appointment6 = {
-		id : "id6",
-		description : "",
-		location : "",
-		subject : "Sergio",
-		calendar : "Masaje Relajente",
-		start : new Date(2017, 10, 26, 14, 0, 0),
-		end : new Date(2017, 10, 26, 16, 0, 0)
-	}
-	var appointment7 = {
-			id : "id7",
-			description : "",
-			location : "",
-			subject : "Alexandra",
-			calendar : "Reflexologia",
-			start : new Date(2017, 10, 26, 14, 0, 0),
-			end : new Date(2017, 10, 26, 16, 0, 0)
-		}
-	appointments.push(appointment1);
-	appointments.push(appointment2);
-	appointments.push(appointment3);
-	appointments.push(appointment4);
-	appointments.push(appointment5);
-	appointments.push(appointment6);
-	appointments.push(appointment7);
+function datosAgenda(){
 	
+	var appointments = new Array();
+	//llamada a la lista de pacientes por clinica
+	  $.getJSON(
+			  'listaPacientes', 
+			  "clinica="+1,
+              function(obj) {
+                    for (var i=0; i<obj.length; i++) {
+                    	
+                    	//creamos la cita
+                    	appointment = {
+                    			id : obj[i][0],
+                    			description : obj[i][1],
+                    			location : "",
+                    			subject : obj[i][2],
+                    			calendar : obj[i][3],
+                    			start : new Date(2017, 10, 23, 9, 0, 0),
+                    			end : new Date(2017, 10, 23, 10, 0, 0)
+                    		}
+                    	
+                    	//creamos el listado de citas por paciente
+                    	appointments.push(appointment);
+                    }
+                  //datos agenda
+              	  cargaAgenda(appointments);
+              }
+			  
+	  	);
+	  
+
+}
+function cargaAgenda(appointments) {
+	//citas
+
+	  
+//	  $.ajax({
+//          url: "listaPacientes",
+//          type: "GET",
+//          data: "clinica="+1,
+//          dataType: "json",
+//          contentType : 'application/json',
+//          error: function() {alert('error');},
+//          success: function(data) {
+//              for (var i=0; i<data.length; i++) {
+//              	//creamos la cita
+//              	appointment = {
+//              			id : "id1",
+//              			description : "",
+//              			location : "",
+//              			subject : "Alfredo Rondon",
+//              			calendar : "Fisioterapia",
+//              			start : new Date(2017, 10, 23, 9, 0, 0),
+//              			end : new Date(2017, 10, 23, 16, 0, 0)
+//              		}
+//              	
+//              	//creamos el listado de citas por paciente
+//              	appointments.push(appointment);
+//              }
+//
+//
+//                
+//          },
+//          complete: function() {}
+//      });
+	
+	
+//
+//	var appointment1 = {
+//		id : "id1",
+//		description : "",
+//		location : "",
+//		subject : "Alfredo Rondon",
+//		calendar : "Fisioterapia",
+//		start : new Date(2017, 10, 23, 9, 0, 0),
+//		end : new Date(2017, 10, 23, 16, 0, 0)
+//	}
+//
+//	var appointment2 = {
+//		id : "id2",
+//		description : "",
+//		location : "",
+//		subject : "Alejandro",
+//		calendar : "Fisioterapia",
+//		start : new Date(2017, 10, 24, 10, 0, 0),
+//		end : new Date(2017, 10, 24, 15, 0, 0)
+//	}
+//
+//	var appointment3 = {
+//		id : "id3",
+//		description : "",
+//		location : "",
+//		subject : "Esther",
+//		calendar : "Pilates",
+//		start : new Date(2017, 10, 27, 11, 0, 0),
+//		end : new Date(2017, 10, 27, 13, 0, 0)
+//	}
+//
+//	var appointment4 = {
+//		id : "id4",
+//		description : "",
+//		location : "",
+//		subject : "Carlos",
+//		calendar : "Pilates",
+//		start : new Date(2017, 10, 23, 16, 0, 0),
+//		end : new Date(2017, 10, 23, 18, 0, 0)
+//	}
+//
+//	var appointment5 = {
+//		id : "id5",
+//		description : "",
+//		location : "",
+//		subject : "Ana",
+//		calendar : "Podologia",
+//		start : new Date(2017, 10, 25, 15, 0, 0),
+//		end : new Date(2017, 10, 25, 17, 0, 0)
+//	}
+//
+//	var appointment6 = {
+//		id : "id6",
+//		description : "",
+//		location : "",
+//		subject : "Sergio",
+//		calendar : "Masaje Relajente",
+//		start : new Date(2017, 10, 26, 14, 0, 0),
+//		end : new Date(2017, 10, 26, 16, 0, 0)
+//	}
+//	var appointment7 = {
+//			id : "id7",
+//			description : "",
+//			location : "",
+//			subject : "Alexandra",
+//			calendar : "Reflexologia",
+//			start : new Date(2017, 10, 26, 14, 0, 0),
+//			end : new Date(2017, 10, 26, 16, 0, 0)
+//		}
+//	appointments.push(appointment1);
+//	appointments.push(appointment2);
+//	appointments.push(appointment3);
+//	appointments.push(appointment4);
+//	appointments.push(appointment5);
+//	appointments.push(appointment6);
+//	appointments.push(appointment7);
+
 	// prepare the data
 	var source = {
 		dataType : "array",
