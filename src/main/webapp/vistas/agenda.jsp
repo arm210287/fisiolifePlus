@@ -35,7 +35,7 @@
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/menu.js"></script>
 <!-- <script src="./assets/js/funcionesPaginasPrincipales.js"></script> -->
-<script src="./assets/js/agenda.js"></script>
+<script src="./assets/js/agendaGeneral.js"></script>
 
 <script type="text/javascript" src="./assets/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="./assets/jqwidgets/jqxcore.js"></script>
@@ -83,8 +83,8 @@
 			System.out.println("Printed:" + idRol);
 
 		%>
-		<input id="clinica" type="hidden" value=<%=idClinica%> />
-		<input id="idRol" type="hidden" value=<%=idRol%> />
+		<input id="idClinicaGeneral" type="hidden" value=<%=idClinica%> />
+		<input id="idRolGeneral" type="hidden" value=<%=idRol%> />
 		<div id="scheduler"></div>
 	</div>
 

@@ -120,9 +120,8 @@
 								<c:otherwise>
 									<li><a href="#">Clinicas</a>
 										<ul>
-											<li><a href="#" onclick="loadMenu('Ag',1,3);return false;">Vista Alegre</a></li>
-											<li><a href="#" onclick="loadMenu('Ag',2,3);return false;">Cuzco</a></li>
-											<li><a href="#" onclick="loadMenu('Ag',3,3);return false;">Mostoles</a></li>
+											<li><a href="#" onclick="loadMenu('Ag','1','1');">Vista Alegre</a></li>
+											<li><a href="#" onclick="loadMenu('Ag','2','1');">Cuzco</a></li>
 										</ul></li>
 								</c:otherwise>
 							</c:choose>

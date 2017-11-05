@@ -9,7 +9,7 @@ function datosAgenda(){
 	//llamada a la lista de pacientes por clinica
 	  $.getJSON(
 			  'listaPacientes',
-			  "clinica="+$("#clinica").val()+"&idRol="+$("#idRol").val(),
+			  "clinica="+$("#idClinicaGeneral").val()+"&idRol="+$("#idRolGeneral").val(),
               function(obj) {
                     for (var i=0; i<obj.length; i++) {
                     	//creamos la cita
@@ -251,7 +251,7 @@ function cargaAgenda(appointments) {
             editDialogLocationString: "Direccion",
             editDialogFromString: "Desde",
             editDialogToString: "Hasta",
-            editDialogAllDayString: "Todo el día",
+            editDialogAllDayString: "Todo el dï¿½a",
             editDialogExceptionsString: "Error",
             editDialogResetExceptionsString: "Error en las espesificaciones",
             editDialogDescriptionString: "Observaciones",
@@ -275,7 +275,7 @@ function cargaAgenda(appointments) {
             editDialogRepeatMonthlyString: "Mensual",
             editDialogRepeatYearlyString: "Anual",
             editDialogRepeatEveryMonthString: "Mes (n)",
-            editDialogRepeatEveryMonthDayString: "Día",
+            editDialogRepeatEveryMonthDayString: "Dï¿½a",
             editDialogRepeatFirstString: "erste",
             editDialogRepeatSecondString: "zweite",
             editDialogRepeatThirdString: "dritte",
@@ -637,12 +637,3 @@ function cargaAgenda(appointments) {
 
 }
 
-
-function loadMenu(opcion,idClinica,idRol) {
-	if (opcion == 'A') {
-		$("#opcionesMenu").load("./vistas/registration.jsp");
-	} else if (opcion == 'I' || opcion == 'Ag') {
-		$("#opcionesMenu").load("./vistas/agenda.jsp","clinica="+idClinica+"&idRol="+idRol);
-
-	}
-}
