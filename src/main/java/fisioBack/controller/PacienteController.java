@@ -30,8 +30,8 @@ public class PacienteController {
 	 * @return
 	 */
 	@RequestMapping(value="/listaPacientes", method = RequestMethod.GET)
-	public @ResponseBody  List<String> lista (@RequestParam ("clinica") Integer clinica){
-		List<String> listaPacientes = this.pacienteService.listaPacienteClinicas(clinica);
+	public @ResponseBody  List<String> lista (@RequestParam ("clinica") Integer clinica,@RequestParam ("idRol") Integer idRol){
+		List<String> listaPacientes = this.pacienteService.listaPacienteClinicas(clinica,idRol);
 		List<String> listaAgendaPacientes = new ArrayList<String>();
 		if(listaPacientes!=null && listaPacientes.size()>0){
 			listaAgendaPacientes=listaPacientes;

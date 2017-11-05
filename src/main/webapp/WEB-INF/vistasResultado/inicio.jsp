@@ -96,6 +96,13 @@
 							<a>Bienvenido: ${nombreUsuario}</a>
 						</p>
 						
+						<!-- clinica/idRol del usuario conectado -->
+		
+						<c:set var="idClinica" scope="session" value="${clinica}" />
+						<c:set var="idRol" scope="session" value="${idRol}" />
+						<input id="clinica" type="hidden" value="${idClinica}"/>
+						<input id="idRol" type="hidden" value="${idRol}"/>
+						
 						<!-- Sample menu definition -->
 						<ul id="main-menu" class="sm sm-blue">
 							<c:set var="rol" scope="session" value="${rol}" />
@@ -113,9 +120,9 @@
 								<c:otherwise>
 									<li><a href="#">Clinicas</a>
 										<ul>
-											<li><a href="#">Vista Alegre</a></li>
-											<li><a href="#">Cuzco</a></li>
-											<li><a href="#">Mostoles</a></li>
+											<li><a href="#" onclick="loadMenu('Ag',1,3);return false;">Vista Alegre</a></li>
+											<li><a href="#" onclick="loadMenu('Ag',2,3);return false;">Cuzco</a></li>
+											<li><a href="#" onclick="loadMenu('Ag',3,3);return false;">Mostoles</a></li>
 										</ul></li>
 								</c:otherwise>
 							</c:choose>

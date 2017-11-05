@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import fisioBack.Bo.InfoLogin;
 import fisioBack.model.Login;
 //import fisioBack.model.User;
 //import fisioBack.model.UserProfile;
@@ -47,18 +48,24 @@ public class LoginController {
 		Login login = new Login();
 		login.setNombreUsuario(nombreUsuario);
 		login.setClaveUsuario(claveUsuario);
-		String rolContectado ="";
-		 rolContectado = loginService.checkLogin(login);
-		if(rolContectado.equals("FRAN")||rolContectado.equals("FISIO")||rolContectado.equals("GERENT")){
-			model.addAttribute("nombreUsuario",login.getNombreUsuario());
-			model.addAttribute("rol",rolContectado);
-			return "inicio";
+		InfoLogin infoLogin = new InfoLogin();
+		infoLogin = loginService.checkLogin(login);
+		if(infoLogin.getRol()!=null){
+			if(infoLogin.getRol().equals("FRAN")||infoLogin.getRol().equals("FISIO")||infoLogin.getRol().equals("GERENT")){
+				model.addAttribute("nombreUsuario",login.getNombreUsuario());
+				model.addAttribute("rol",infoLogin.getRol());
+				model.addAttribute("idRol",infoLogin.getIdRol());
+				model.addAttribute("clinica",infoLogin.getClinica());
+				return "inicio";
+			}
+			else{
+				model.addAttribute("accesoDenegado","S");
+				return "redirect:/index.jsp";
+			}
+			
 		}
-		else{
-			model.addAttribute("accesoDenegado","S");
-			return "redirect:/index.jsp";
-		}
-		
+		return "redirect:/index.jsp";
+
 	}
 
 	/**

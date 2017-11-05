@@ -1,6 +1,7 @@
 package fisioBack.services;
 
 
+import fisioBack.Bo.InfoLogin;
 import fisioBack.model.Login;
 
 
@@ -8,6 +9,6 @@ import fisioBack.model.Login;
 public interface LoginService {
 
 	
-	String checkLogin(Login login);
+	InfoLogin checkLogin(Login login);
 	
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fisioBack.Bo.InfoLogin;
 import fisioBack.dao.LoginDao;
 import fisioBack.model.Login;
 
@@ -16,7 +17,7 @@ public class LoginServiceImpl implements LoginService{
 	LoginDao dao;
 
 	@Override
-	public String checkLogin(Login login) {
+	public InfoLogin checkLogin(Login login) {
 		return dao.checkLogin(login);
 	}
 }

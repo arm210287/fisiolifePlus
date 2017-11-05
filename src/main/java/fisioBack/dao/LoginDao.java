@@ -2,9 +2,10 @@ package fisioBack.dao;
 
 
 
+import fisioBack.Bo.InfoLogin;
 import fisioBack.model.Login;
 
 public interface LoginDao {
 
-	String checkLogin (Login login);
+	InfoLogin checkLogin (Login login);
 }

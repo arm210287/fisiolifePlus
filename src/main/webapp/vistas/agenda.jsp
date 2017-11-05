@@ -39,7 +39,8 @@
 
 <script type="text/javascript" src="./assets/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="./assets/jqwidgets/jqxcore.js"></script>
-<script type="text/javascript" src="./assets/jqwidgets/jqxdatetimeinput.js"></script>
+<script type="text/javascript"
+	src="./assets/jqwidgets/jqxdatetimeinput.js"></script>
 <script type="text/javascript" src="./assets/jqwidgets/jqxbuttons.js"></script>
 <script type="text/javascript" src="./assets/jqwidgets/jqxscrollbar.js"></script>
 <script type="text/javascript" src="./assets/jqwidgets/jqxdata.js"></script>
@@ -67,15 +68,26 @@
 <script type="text/javascript"
 	src="./assets/jqwidgets/globalization/globalize.culture.es-ES.js"></script>
 <!-- SmartMenus jQuery plugin -->
-	<script type="text/javascript" src="./assets/js/jquery.smartmenus.js">
+<script type="text/javascript" src="./assets/js/jquery.smartmenus.js">
+	
 </script>
 
 </head>
 <body>
+
 	<div id="agenda" class='default'>
+		<%
+			String idClinica = request.getParameter("clinica");
+			String idRol = request.getParameter("idRol");
+			System.out.println("Printed:" + idClinica);
+			System.out.println("Printed:" + idRol);
+
+		%>
+		<input id="clinica" type="hidden" value=<%=idClinica%> />
+		<input id="idRol" type="hidden" value=<%=idRol%> />
 		<div id="scheduler"></div>
 	</div>
-	
+
 
 </body>
-</html>	
+</html>

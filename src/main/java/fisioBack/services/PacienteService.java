@@ -6,6 +6,6 @@ import java.util.List;
 public interface PacienteService {
 
 	
-	List<String> listaPacienteClinicas(Integer clinica);
+	List<String> listaPacienteClinicas(Integer clinica,Integer idRol);
 	
 }

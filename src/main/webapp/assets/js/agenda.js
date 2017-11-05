@@ -5,11 +5,16 @@ $(document).ready(function() {
 
 function datosAgenda(){
 	var appointments = new Array();
+//	var idClinica=$("#clinica").val();
+//	if(idClinica!="")$("#clinica").val();
+	//else
+	//defecto
+	//$("#clinica").val(1);
 	
 	//llamada a la lista de pacientes por clinica
 	  $.getJSON(
-			  'listaPacientes', 
-			  "clinica="+1,
+			  'listaPacientes',
+			  "clinica="+$("#clinica").val()+"&idRol="+$("#idRol").val(),
               function(obj) {
                     for (var i=0; i<obj.length; i++) {
                     	//creamos la cita
@@ -17,10 +22,10 @@ function datosAgenda(){
                     			id : "id"+i,
                     			description : obj[i][1],
                     			location : "",
-                    			subject : obj[i][2],
-                    			calendar : obj[i][3],
-                    			start : new Date(2017, 10, 23, 9, 0, 0),
-                    			end : new Date(2017, 10, 23, 10, 0, 0)
+                    			subject : obj[i][4],
+                    			calendar : obj[i][5],
+                    			start : obj[i][2],
+                    			end : obj[i][3],
                     		}
                     	
                     	//creamos el listado de citas por paciente
@@ -638,7 +643,7 @@ function cargaAgenda(appointments) {
 }
 
 
-function loadMenu(opcion) {
+function loadMenu(opcion,idClinica,idRol) {
 	if (opcion == 'A') {
 		// $.ajax({
 		// type: "POST",
@@ -657,7 +662,7 @@ function loadMenu(opcion) {
 
 		$("#opcionesMenu").load("./vistas/registration.jsp");
 	} else if (opcion == 'I' || opcion == 'Ag') {
-		$("#opcionesMenu").load("./vistas/agenda.jsp");
+		$("#opcionesMenu").load("./vistas/agenda.jsp","clinica="+idClinica+"&idRol="+idRol);
 
 	}
 }
