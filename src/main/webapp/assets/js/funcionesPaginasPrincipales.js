@@ -7,7 +7,7 @@ $(document).ready(function() {
 });
 
 function load(numeroPag) {
-	$("#slider").load("./vistas/pagina" + numeroPag + ".html");
+	$("#slider").load("./vistas/pagina"+numeroPag+".html");
 };
 
 function loadCita() {

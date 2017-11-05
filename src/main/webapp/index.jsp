@@ -64,11 +64,11 @@
 									<img alt="" src="./images/fisioLogo3.png">
 								</div>
 								<a href="index.jsp" class="current-page-item">Inicio</a> <a
-									onclick="load(1);" href="#">Quienes Somos</a> <a
-									onclick="load(2);" href="#">Servicios</a> <a
-									onclick="load(3);" href="#">Tarifas</a> <a
-									onclick="loadCita();" href="#">Cita Online</a> <a
-									onclick="loadContacto();" href="#">Contacto</a>
+									onclick="load('1');return false;" href="#">Quienes Somos</a> <a
+									onclick="load('2'); return false;" href="#">Servicios</a> <a
+									onclick="load('3'); return false;" href="#">Tarifas</a> <a
+									onclick="loadCita(); return false;" href="#">Cita Online</a> <a
+									onclick="loadContacto(); return false;" href="#">Contacto</a>
 
 								<div id="bar">
 									<div id="container">
@@ -112,17 +112,12 @@
 
 					<div id="slider" class="mi-slider">
 						<ul>
-							<li><img alt="" src="./images/fisio1.jpg" width="1200px"
+							<li><img alt="" src="./images/BANNER 1.png" width="1200px"
 								height="380px"></li>
-							<li><img alt="" src="./images/fisio2.jpg" width="1200px"
+							<li><img alt="" src="./images/BANNER 2.png" width="1200px"
 								height="380px"></li>
-							<li><img alt="" src="./images/fisio3.jpg" width="1200px"
+							<li><img alt="" src="./images/BANNER 3.png" width="1200px"
 								height="380px"></li>
-							<li><img alt="" src="./images/fisio4.jpg" width="1200px"
-								height="380px"></li>
-							<li><img alt="" src="./images/fisio5.jpg" width="1200px"
-								height="380px"></li>
-
 						</ul>
 					</div>
 

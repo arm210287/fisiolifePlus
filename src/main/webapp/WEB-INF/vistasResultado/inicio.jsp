@@ -107,7 +107,7 @@
 						<ul id="main-menu" class="sm sm-blue">
 							<c:set var="rol" scope="session" value="${rol}" />
 
-							<li><a href="#" onclick="loadMenu('I');return false;">Inicio</a></li>
+							<li><a href="#" onclick="loadMenu('I','${idRol}','${clinica}');return false;">Inicio</a></li>
 							<c:choose>
 								<c:when test="${rol eq 'FISIO' or rol eq 'FRAN'}">
 									<li><a href="#">Clinicas</a>
@@ -127,7 +127,7 @@
 							<c:choose>
 							
 								<c:when test="${rol eq 'FISIO' or rol eq 'FRAN'}">							
-									<li><a href="#" onclick="loadMenu('Ag');return false;">Agenda</a></li>
+									<li><a href="#" onclick="loadMenu('Ag','${idRol}','${clinica}');return false;">Agenda</a></li>
 								</c:when>
 								<c:otherwise>
 									<li><a href="#" class="disabled">Agenda</a></li>
