@@ -1,21 +1,20 @@
 $(document).ready(function() {
 	datosAgenda();
-
+	//cargaAgenda();
 });
 
 function datosAgenda(){
-	
 	var appointments = new Array();
+	
 	//llamada a la lista de pacientes por clinica
 	  $.getJSON(
 			  'listaPacientes', 
 			  "clinica="+1,
               function(obj) {
                     for (var i=0; i<obj.length; i++) {
-                    	
                     	//creamos la cita
-                    	appointment = {
-                    			id : obj[i][0],
+                    		var appointment= {
+                    			id : "id"+i,
                     			description : obj[i][1],
                     			location : "",
                     			subject : obj[i][2],
@@ -36,40 +35,8 @@ function datosAgenda(){
 
 }
 function cargaAgenda(appointments) {
-	//citas
-
-	  
-//	  $.ajax({
-//          url: "listaPacientes",
-//          type: "GET",
-//          data: "clinica="+1,
-//          dataType: "json",
-//          contentType : 'application/json',
-//          error: function() {alert('error');},
-//          success: function(data) {
-//              for (var i=0; i<data.length; i++) {
-//              	//creamos la cita
-//              	appointment = {
-//              			id : "id1",
-//              			description : "",
-//              			location : "",
-//              			subject : "Alfredo Rondon",
-//              			calendar : "Fisioterapia",
-//              			start : new Date(2017, 10, 23, 9, 0, 0),
-//              			end : new Date(2017, 10, 23, 16, 0, 0)
-//              		}
-//              	
-//              	//creamos el listado de citas por paciente
-//              	appointments.push(appointment);
-//              }
+//	var appointments = new Array();
 //
-//
-//                
-//          },
-//          complete: function() {}
-//      });
-	
-	
 //
 //	var appointment1 = {
 //		id : "id1",
