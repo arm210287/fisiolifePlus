@@ -114,7 +114,6 @@
 										<ul>
 											<li><a href="#" class="disabled">Vista Alegre</a></li>
 											<li><a href="#" class="disabled">Cuzco</a></li>
-											<li><a href="#" class="disabled">Mostoles</a></li>
 										</ul></li>
 								</c:when>
 								<c:otherwise>
@@ -125,7 +124,18 @@
 										</ul></li>
 								</c:otherwise>
 							</c:choose>
-							<li><a href="#" onclick="loadMenu('Ag');return false;">Agenda</a></li>
+							<c:choose>
+							
+								<c:when test="${rol eq 'FISIO' or rol eq 'FRAN'}">							
+									<li><a href="#" onclick="loadMenu('Ag');return false;">Agenda</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="#" class="disabled">Agenda</a></li>
+								
+								</c:otherwise>
+									
+							</c:choose>
+							
 							<li><a href="#">Pacientes</a>
 								<ul>
 									<li><a href="#" onclick="loadMenu('A');return false;">Añadir</a></li>
