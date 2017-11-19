@@ -14,7 +14,7 @@
 	border-radius: 5px;
 	display: table;
 	position: static;
-	margin-top: 40px;
+	margin-top: 0px;
 }
 
 #signup .header {
@@ -144,4 +144,8 @@ input:-moz-placeholder {
 	background: -moz-linear-gradient(top, #a4b0cb 0%, #b9c5dd);
 	background: -webkit-gradient(linear, left top, left bottom, from(#a4b0cb),
 		to(#b9c5dd));
+}
+
+h4{
+color: #d0c6ed;	
 }

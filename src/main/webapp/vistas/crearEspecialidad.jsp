@@ -22,7 +22,7 @@
 
         <div class="header">
         
-            <h3>Registro Paciente</h3>
+            <h3>Registro Especialdad</h3>
             
         </div>
         
@@ -30,14 +30,8 @@
 
         <div class="inputs">
             <input type="text" placeholder="Nombre"  autofocus/>
-            <input type="text" placeholder="Apellidos" autofocus/>
-            <input type="text" placeholder="DNI" autofocus />
-			<h4>Fecha de nacimiento</h4>
-			<div id="dateTimeInput" ></div><br/>
-			<input type="email" placeholder="e-mail" autofocus />
-            <input type="text" placeholder="Telefono" autofocus />
-        	<input type="text" placeholder="Direccion" autofocus />
-        	<textarea type="text" placeholder="Observaciones" autofocus></textarea>
+        	<textarea type="text" placeholder="Descripcion" autofocus></textarea>        
+        	<div id="dateTimeInput" ></div>         
             <a id="submit" href="#">Registrar</a>
         
         </div>
@@ -50,7 +44,6 @@
                 <input type="button" style="" value="Aceptar" id="aceptarRegistro" />
             </div>
         </div>
-
     </form>
 
 </div>

@@ -10,7 +10,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="./assets/css/main.css" />
-<!-- <link rel="stylesheet" href="./assets/css/formulario.css" /> -->
+<link rel="stylesheet" href="./assets/css/formulario.css" />
 </head>
 
 
@@ -74,7 +74,7 @@
 									<div id="container">
 										<!-- Login Starts Here -->
 										<div id="Form">
-											<a href="" id="loginButton" onclick=""><img alt=""
+											<a href="" id="loginButton" title="iniciar sesión" onclick=""><img alt=""
 												src="./images/login.png"></a>
 											<div id="loginBox">
 												<c:url var="loginUrl" value="/login" />
@@ -149,26 +149,26 @@
 											<td>Lunes a Viernes</td>
 											<td>10:00h a 21:00h</td>
 										</tr>
-										<tr>
-											<td>Martes</td>
-											<td>10:00h a 21:00h</td>
-										</tr>
-										<tr>
-											<td>Miercoles</td>
-											<td>10:00h a 21:00h</td>
-										</tr>
-										<tr>
-											<td>Jueves</td>
-											<td>10:00h a 21:00h</td>
-										</tr>
-										<tr>
-											<td>Viernes</td>
-											<td>10:00h a 21:00h</td>
-										</tr>
-										<tr>
-											<td>Sabados</td>
-											<td>11:00h a 19:00h</td>
-										</tr>
+<!-- 										<tr> -->
+<!-- 											<td>Martes</td> -->
+<!-- 											<td>10:00h a 21:00h</td> -->
+<!-- 										</tr> -->
+<!-- 										<tr> -->
+<!-- 											<td>Miercoles</td> -->
+<!-- 											<td>10:00h a 21:00h</td> -->
+<!-- 										</tr> -->
+<!-- 										<tr> -->
+<!-- 											<td>Jueves</td> -->
+<!-- 											<td>10:00h a 21:00h</td> -->
+<!-- 										</tr> -->
+<!-- 										<tr> -->
+<!-- 											<td>Viernes</td> -->
+<!-- 											<td>10:00h a 21:00h</td> -->
+<!-- 										</tr> -->
+<!-- 										<tr> -->
+<!-- 											<td>Sabados</td> -->
+<!-- 											<td>11:00h a 19:00h</td> -->
+<!-- 										</tr> -->
 									</tbody>
 								</table>
 							</section>

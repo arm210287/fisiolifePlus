@@ -34,7 +34,6 @@
 <script src="./assets/js/jsCycle.js"></script>
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/menu.js"></script>
-<!-- <script src="./assets/js/funcionesPaginasPrincipales.js"></script> -->
 <script src="./assets/js/agenda.js"></script>
 
 <script type="text/javascript" src="./assets/js/jquery-1.11.1.min.js"></script>
@@ -107,7 +106,7 @@
 						<ul id="main-menu" class="sm sm-blue">
 							<c:set var="rol" scope="session" value="${rol}" />
 
-							<li><a href="#" onclick="loadMenu('I','${idRol}','${clinica}');return false;">Inicio</a></li>
+<%-- 							<li><a href="#" onclick="loadMenu('I','${idRol}','${clinica}');return false;">Inicio</a></li> --%>
 							<c:choose>
 								<c:when test="${rol eq 'FISIO' or rol eq 'FRAN'}">
 									<li><a href="#">Clinicas</a>
@@ -140,6 +139,7 @@
 								<ul>
 									<li><a href="#" onclick="loadMenu('A');return false;">Añadir</a></li>
 									<li><a href="#">Consultar</a></li>
+									<li><a href="#">Historias Clinicas</a></li>
 								</ul></li>
 							<li><a href="#">Estadisticas</a>
 								<ul>
@@ -169,7 +169,11 @@
 												</ul></li>
 										</c:when>
 										<c:otherwise>
-											<li><a href="#">Facturas</a></li>
+											<li><a href="#">Facturas</a>
+												<ul>
+													<li><a href="#">Añadir</a></li>
+													<li><a href="#">Consultar</a></li>
+												</ul></li>
 											<li><a href="#">Inventario</a></li>
 											<li><a href="#">Balances</a>
 												<ul>
@@ -181,7 +185,24 @@
 										</c:otherwise>
 									</c:choose>
 								</ul></li>
-							<li><a href="#">Notificaciones</a>
+							<li><a href="#">Notificaciones</a></li>
+							
+							<c:choose>
+								<c:when test="${rol eq 'FISIO' or rol eq 'FRAN'}">							
+									<li><a href="#">Configuración</a>
+									<ul>
+										<li><a href="#" onclick="loadMenu('CE');return false;">Añadir Especialista</a></li>
+										<li><a href="#" onclick="loadMenu('CESP');return false;">Añadir Especialidad</a></li>
+									</ul></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="#">Configuración</a>
+									<ul>
+										<li><a href="#" onclick="loadMenu('CE');return false;">Añadir Especialista</a></li>
+										<li><a href="#" onclick="loadMenu('CESP');return false;">Añadir Especialidad</a></li>
+									</ul></li>
+								</c:otherwise>
+							</c:choose>
 						</ul>
 						</nav>
 
@@ -199,7 +220,6 @@
 						<div id="scheduler"></div>
 
 					</div>
-					<!-- 					 <input type="button" value="Click Me" id='myButton' /> -->
 				</div>
 
 			</div>

@@ -644,5 +644,12 @@ function loadMenu(opcion,idClinica,idRol) {
 	} else if (opcion == 'I' || opcion == 'Ag') {
 		$("#opcionesMenu").load("./vistas/agenda.jsp","clinica="+idClinica+"&idRol="+idRol);
 
+	} else if (opcion=='CE'){
+		$("#opcionesMenu").load("./vistas/crearEspecialista.jsp");
+	
+	} else if (opcion=='CESP'){
+		$("#opcionesMenu").load("./vistas/crearEspecialidad.jsp");
+	
 	}
 }
+

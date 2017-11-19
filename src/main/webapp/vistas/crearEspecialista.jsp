@@ -22,7 +22,7 @@
 
         <div class="header">
         
-            <h3>Registro Paciente</h3>
+            <h3>Registro Especialista</h3>
             
         </div>
         
@@ -33,15 +33,16 @@
             <input type="text" placeholder="Apellidos" autofocus/>
             <input type="text" placeholder="DNI" autofocus />
 			<h4>Fecha de nacimiento</h4>
-			<div id="dateTimeInput" ></div><br/>
-			<input type="email" placeholder="e-mail" autofocus />
+			<div id="dateTimeInput" ></div><br/>     
+            <input type="email" placeholder="e-mail" autofocus />
             <input type="text" placeholder="Telefono" autofocus />
+            <input type="text" placeholder="Nombre de usuario" autofocus />
+            <input type="text" placeholder="Contraseña" autofocus />
         	<input type="text" placeholder="Direccion" autofocus />
-        	<textarea type="text" placeholder="Observaciones" autofocus></textarea>
             <a id="submit" href="#">Registrar</a>
         
         </div>
-		<div id='jqxwindow' display="none">
+        <div id='jqxwindow' display="none">
             <div>
                Mensaje </div>
             <div>
