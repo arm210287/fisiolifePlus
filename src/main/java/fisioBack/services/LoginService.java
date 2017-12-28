@@ -1,7 +1,7 @@
 package fisioBack.services;
 
 
-import fisioBack.Bo.InfoLogin;
+import fisioBack.bo.InfoLogin;
 import fisioBack.model.Login;
 
 

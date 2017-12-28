@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import fisioBack.Bo.InfoLogin;
+import fisioBack.bo.InfoLogin;
 import fisioBack.model.Login;
 //import fisioBack.model.User;
 //import fisioBack.model.UserProfile;

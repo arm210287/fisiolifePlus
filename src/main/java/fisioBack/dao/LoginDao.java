@@ -2,7 +2,7 @@ package fisioBack.dao;
 
 
 
-import fisioBack.Bo.InfoLogin;
+import fisioBack.bo.InfoLogin;
 import fisioBack.model.Login;
 
 public interface LoginDao {

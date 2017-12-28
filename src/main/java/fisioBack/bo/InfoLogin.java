@@ -1,4 +1,4 @@
-package fisioBack.Bo;
+package fisioBack.bo;
 
 public class InfoLogin {
 	

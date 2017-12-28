@@ -10,7 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import fisioBack.Bo.InfoLogin;
+import fisioBack.bo.InfoLogin;
 import fisioBack.model.Login;
 
 @Repository("loginDao")
