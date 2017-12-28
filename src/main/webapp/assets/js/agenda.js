@@ -637,19 +637,28 @@ function cargaAgenda(appointments) {
 
 }
 
-
+/***
+ * Opciones del menu y acciones disponibles
+ */
 function loadMenu(opcion,idClinica,idRol) {
+	//registro paciente
 	if (opcion == 'A') {
 		$("#opcionesMenu").load("./vistas/registration.jsp");
+	//inicio o opcion agenda	
 	} else if (opcion == 'I' || opcion == 'Ag') {
 		$("#opcionesMenu").load("./vistas/agenda.jsp","clinica="+idClinica+"&idRol="+idRol);
-
+	//configuracion:crear especialista
 	} else if (opcion=='CE'){
 		$("#opcionesMenu").load("./vistas/crearEspecialista.jsp");
-	
+	//configuracion: crear especialidad
 	} else if (opcion=='CESP'){
 		$("#opcionesMenu").load("./vistas/crearEspecialidad.jsp");
 	
 	}
+	//paciente: consulta
+	 else if (opcion=='ConsPac'){
+			$("#opcionesMenu").load("./vistas/consultaPaciente.jsp");
+		
+		}
 }
 

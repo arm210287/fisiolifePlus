@@ -138,7 +138,7 @@
 							<li><a href="#">Pacientes</a>
 								<ul>
 									<li><a href="#" onclick="loadMenu('A');return false;">Añadir</a></li>
-									<li><a href="#">Consultar</a></li>
+									<li><a href="#" onclick="loadMenu('ConsPac','${idRol}','${clinica}');return false;">Consultar</a></li>
 									<li><a href="#">Historias Clinicas</a></li>
 								</ul></li>
 							<li><a href="#">Estadisticas</a>

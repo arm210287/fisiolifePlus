@@ -34,7 +34,6 @@
 <script src="./assets/js/jsCycle.js"></script>
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/menu.js"></script>
-<!-- <script src="./assets/js/funcionesPaginasPrincipales.js"></script> -->
 <script src="./assets/js/agendaGeneral.js"></script>
 
 <script type="text/javascript" src="./assets/js/jquery-1.11.1.min.js"></script>
@@ -76,6 +75,7 @@
 <body>
 
 	<div id="agenda" class='default'>
+		<!-- Recoge valores que viajan por la URL -->
 		<%
 			String idClinica = request.getParameter("clinica");
 			String idRol = request.getParameter("idRol");
@@ -83,8 +83,12 @@
 			System.out.println("Printed:" + idRol);
 
 		%>
+		
+		<!-- variables almacenadas -->
 		<input id="idClinicaGeneral" type="hidden" value=<%=idClinica%> />
 		<input id="idRolGeneral" type="hidden" value=<%=idRol%> />
+		
+		<!-- carga la agenda segun el ROL y la Clinica en cuestion -->
 		<div id="scheduler"></div>
 	</div>
 
