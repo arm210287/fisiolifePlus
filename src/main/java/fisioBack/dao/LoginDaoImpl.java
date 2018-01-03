@@ -2,34 +2,19 @@ package fisioBack.dao;
 
 import java.util.Iterator;
 import java.util.List;
-
-import javax.annotation.Resource;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import fisioBack.bo.InfoLogin;
 import fisioBack.model.Login;
 
 @Repository("loginDao")
-public class LoginDaoImpl implements LoginDao {
-
-	@Resource(name = "sessionFactory")
-	protected SessionFactory sessionFactory;
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-
-	protected Session getSession() {
-		return sessionFactory.openSession();
-	}
+public class LoginDaoImpl extends HibernateUtil implements LoginDao{
 
 	@Override
     public InfoLogin checkLogin(Login login){
-			Session session = sessionFactory.openSession();
+			Session session = this.sessionFactory.openSession();
 			InfoLogin infoLogin = new InfoLogin();
 			String SQL_QUERY ="select "
 					+ "r.tipo, "

@@ -2,33 +2,17 @@ package fisioBack.dao;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Query;
 
-import fisioBack.model.Login;
-import fisioBack.model.Paciente;
-
 @Repository("pacienteDao")
-public class PacienteDaoImpl implements PacienteDao {
-
-	@Resource(name = "sessionFactory")
-	protected SessionFactory sessionFactory;
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-
-	protected Session getSession() {
-		return sessionFactory.openSession();
-	}
+public class PacienteDaoImpl extends HibernateUtil implements PacienteDao {
 
 	@Override
 	public List<String> listaPacientesCitas(Integer clinica,Integer idRol) {
-		Session session = sessionFactory.openSession();
+		Session session = this.sessionFactory.openSession();
 		String SQL_QUERY ="select "
 				+ "ci.numero, "
 				+ "ci.descripcion, "
