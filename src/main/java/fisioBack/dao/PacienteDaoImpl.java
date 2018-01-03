@@ -2,16 +2,17 @@ package fisioBack.dao;
 
 import java.util.List;
 
-
-import org.springframework.stereotype.Repository;
-import org.hibernate.Session;
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+
+import fisioBack.bo.listaPacienteBO;
 
 @Repository("pacienteDao")
 public class PacienteDaoImpl extends HibernateUtil implements PacienteDao {
 
 	@Override
-	public List<String> listaPacientesCitas(Integer clinica,Integer idRol) {
+	public List<String> listaPacientesCitas(listaPacienteBO infoPaciente) {
 		Session session = this.sessionFactory.openSession();
 		String SQL_QUERY ="select "
 				+ "ci.numero, "
@@ -34,17 +35,20 @@ public class PacienteDaoImpl extends HibernateUtil implements PacienteDao {
 				+ "cli.idClinica = pa.fkClinica  "
 				+ "and pa.idPaciente = espPac.fkPaciente "
 				+ "and esp.idEspecialidad = espPac.fkEspecialidad  "
-				+ "and lo.fkUsuario=us.idUsuario "
+				+ "and lo.idLogin=us.idLogin "
 				+ "and us.fkClinica = cli.idClinica "
 				+ "and ci.idCita=cp.fkCita "
 				+ "and cp.fkPaciente=pa.idPaciente "
-				+ "and r.idRol=us.rol "
 				+ "and cli.idClinica=?"
-				+ "and r.idRol=?";
+				+ "and r.idRol=?"
+				+ "and lo.claveUsuario=?"
+				+ "and us.idUsuario=?";
 		
 		Query query =  session.createQuery(SQL_QUERY);
-		query.setParameter(0,clinica);
-		query.setParameter(1,idRol);
+		query.setParameter(0,infoPaciente.getIdClinica());
+		query.setParameter(1,infoPaciente.getIdRol());
+		query.setParameter(2,infoPaciente.getClaveUsuario());
+		query.setParameter(3,infoPaciente.getIdUsuario());
 		List list = query.list();
 		if(list!=null && list.size()>0){
 			return list;

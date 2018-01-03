@@ -56,6 +56,9 @@ public class LoginController {
 				model.addAttribute("rol",infoLogin.getRol());
 				model.addAttribute("idRol",infoLogin.getIdRol());
 				model.addAttribute("clinica",infoLogin.getClinica());
+				model.addAttribute("idUsuario",infoLogin.getIdUsuario());
+				model.addAttribute("claveUsuario",infoLogin.getClaveUsuario());
+
 				return "inicio";
 			}
 			else{

@@ -4,8 +4,10 @@ package fisioBack.dao;
 
 import java.util.List;
 
+import fisioBack.bo.listaPacienteBO;
+
 
 public interface PacienteDao {
 
-	List<String> listaPacientesCitas(Integer idClinica,Integer idRol);
+	List<String> listaPacientesCitas(listaPacienteBO infoPaciente);
 }

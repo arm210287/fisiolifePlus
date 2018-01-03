@@ -57,6 +57,9 @@ public class User implements Serializable{
 	
 	@Column(name="fk_id_clinica", nullable=false)
 	private String fkClinica ;
+	
+	@Column(name="login_usu", nullable=false)
+	private String idLogin ;
 
 
 	public Integer getIdUsuario() {
@@ -145,6 +148,14 @@ public class User implements Serializable{
 
 	public void setFkClinica(String fkClinica) {
 		this.fkClinica = fkClinica;
+	}
+
+	public String getIdLogin() {
+		return idLogin;
+	}
+
+	public void setIdLogin(String idLogin) {
+		this.idLogin = idLogin;
 	}
 	
 }

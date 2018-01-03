@@ -17,7 +17,7 @@ public class Login implements Serializable{
 	@Id 
 	@GeneratedValue
 	@Column(name="id_login",nullable=false)
-	private Integer id_login;	
+	private Integer idLogin;	
 	
 	@Column(name="nombre_usuario",nullable=false)
 	private String nombreUsuario;	
@@ -30,11 +30,11 @@ public class Login implements Serializable{
 
 
 	public Integer getId_login() {
-		return id_login;
+		return idLogin;
 	}
 
 	public void setId_login(Integer id_login) {
-		this.id_login = id_login;
+		this.idLogin = id_login;
 	}
 
 	

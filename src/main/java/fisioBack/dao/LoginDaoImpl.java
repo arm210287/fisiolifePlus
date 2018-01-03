@@ -19,6 +19,8 @@ public class LoginDaoImpl extends HibernateUtil implements LoginDao{
 			String SQL_QUERY ="select "
 					+ "r.tipo, "
 					+ "u.fkClinica, "
+					+ "l.claveUsuario, "
+					+ "u.idUsuario, "
 					+ "r.idRol "
 					+ "from "
 					+ "fisioBack.model.Login as l,"
@@ -33,11 +35,11 @@ public class LoginDaoImpl extends HibernateUtil implements LoginDao{
 			Iterator itr = result.iterator();
 			while(itr.hasNext()){
 			   Object[] obj = (Object[]) itr.next();
-			   //now you have one array of Object for each row
-			   infoLogin.setRol(String.valueOf(obj[0])); // don't know the type of column CLIENT assuming String 
-			   infoLogin.setClinica(String.valueOf(obj[1]));
-			   infoLogin.setIdRol(String.valueOf(obj[2]));//SERVICE assumed as int
-			   //same way for all obj[2], obj[3], obj[4]
+			   infoLogin.setRol(String.valueOf(obj[0])); //tipo de rol
+			   infoLogin.setClinica(String.valueOf(obj[1]));//clinica a la que esta registrado
+			   infoLogin.setClaveUsuario(String.valueOf(obj[2]));//clave usuario
+			   infoLogin.setIdUsuario(String.valueOf(obj[3]));//id usuario
+			   infoLogin.setIdRol(String.valueOf(obj[4]));//id rol
 			}
 
 

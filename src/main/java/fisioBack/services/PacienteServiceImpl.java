@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fisioBack.bo.listaPacienteBO;
 import fisioBack.dao.PacienteDao;
 
 
@@ -17,8 +18,8 @@ public class PacienteServiceImpl implements PacienteService{
 	PacienteDao dao;
 
 	@Override
-	public List<String> listaPacienteClinicas(Integer clinica,Integer idRol) {
-		return dao.listaPacientesCitas(clinica,idRol);
+	public List<String> listaPacienteClinicas(listaPacienteBO infoPaciente) {
+		return dao.listaPacientesCitas(infoPaciente);
 	}
 
 

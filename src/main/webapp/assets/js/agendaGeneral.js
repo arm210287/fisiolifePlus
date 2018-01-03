@@ -9,7 +9,8 @@ function datosAgenda(){
 	//llamada a la lista de pacientes por clinica
 	  $.getJSON(
 			  'listaPacientes',
-			  "clinica="+$("#idClinicaGeneral").val()+"&idRol="+$("#idRolGeneral").val(),
+			  "clinica="+$("#idClinicaGeneral").val()+"&idRol="+$("#idRolGeneral").val()
+			  +"&idUsuario="+$("#idUsuarioGeneral").val()+"&claveUsuario="+$("#claveUsuarioGeneral").val(),
               function(obj) {
                     for (var i=0; i<obj.length; i++) {
                     	//creamos la cita
@@ -35,84 +36,6 @@ function datosAgenda(){
 
 }
 function cargaAgenda(appointments) {
-//	var appointments = new Array();
-//
-//
-//	var appointment1 = {
-//		id : "id1",
-//		description : "",
-//		location : "",
-//		subject : "Alfredo Rondon",
-//		calendar : "Fisioterapia",
-//		start : new Date(2017, 10, 23, 9, 0, 0),
-//		end : new Date(2017, 10, 23, 16, 0, 0)
-//	}
-//
-//	var appointment2 = {
-//		id : "id2",
-//		description : "",
-//		location : "",
-//		subject : "Alejandro",
-//		calendar : "Fisioterapia",
-//		start : new Date(2017, 10, 24, 10, 0, 0),
-//		end : new Date(2017, 10, 24, 15, 0, 0)
-//	}
-//
-//	var appointment3 = {
-//		id : "id3",
-//		description : "",
-//		location : "",
-//		subject : "Esther",
-//		calendar : "Pilates",
-//		start : new Date(2017, 10, 27, 11, 0, 0),
-//		end : new Date(2017, 10, 27, 13, 0, 0)
-//	}
-//
-//	var appointment4 = {
-//		id : "id4",
-//		description : "",
-//		location : "",
-//		subject : "Carlos",
-//		calendar : "Pilates",
-//		start : new Date(2017, 10, 23, 16, 0, 0),
-//		end : new Date(2017, 10, 23, 18, 0, 0)
-//	}
-//
-//	var appointment5 = {
-//		id : "id5",
-//		description : "",
-//		location : "",
-//		subject : "Ana",
-//		calendar : "Podologia",
-//		start : new Date(2017, 10, 25, 15, 0, 0),
-//		end : new Date(2017, 10, 25, 17, 0, 0)
-//	}
-//
-//	var appointment6 = {
-//		id : "id6",
-//		description : "",
-//		location : "",
-//		subject : "Sergio",
-//		calendar : "Masaje Relajente",
-//		start : new Date(2017, 10, 26, 14, 0, 0),
-//		end : new Date(2017, 10, 26, 16, 0, 0)
-//	}
-//	var appointment7 = {
-//			id : "id7",
-//			description : "",
-//			location : "",
-//			subject : "Alexandra",
-//			calendar : "Reflexologia",
-//			start : new Date(2017, 10, 26, 14, 0, 0),
-//			end : new Date(2017, 10, 26, 16, 0, 0)
-//		}
-//	appointments.push(appointment1);
-//	appointments.push(appointment2);
-//	appointments.push(appointment3);
-//	appointments.push(appointment4);
-//	appointments.push(appointment5);
-//	appointments.push(appointment6);
-//	appointments.push(appointment7);
 
 	// prepare the data
 	var source = {
@@ -243,7 +166,7 @@ function cargaAgenda(appointments) {
             editRecurringAppointmentDialogContentString: "Wollen Sie nur dieses eine Vorkommen oder die Serie zu bearbeiten ?",
             editRecurringAppointmentDialogOccurrenceString: "Vorkommen bearbeiten",
             editRecurringAppointmentDialogSeriesString: "Bearbeiten Die Serie",
-            editDialogTitleString: "Crear Cita",
+            editDialogTitleString: "Editar Cita",
             editDialogCreateTitleString: "Crear Cita",
             contextMenuEditAppointmentString: "Editar Cita",
             contextMenuCreateAppointmentString: "Crear Cita",
@@ -251,7 +174,7 @@ function cargaAgenda(appointments) {
             editDialogLocationString: "Direccion",
             editDialogFromString: "Desde",
             editDialogToString: "Hasta",
-            editDialogAllDayString: "Todo el d�a",
+            editDialogAllDayString: "Todo el día",
             editDialogExceptionsString: "Error",
             editDialogResetExceptionsString: "Error en las espesificaciones",
             editDialogDescriptionString: "Observaciones",

@@ -9,7 +9,8 @@ function datosAgenda(){
 	//llamada a la lista de pacientes por clinica
 	  $.getJSON(
 			  'listaPacientes',
-			  "clinica="+$("#clinica").val()+"&idRol="+$("#idRol").val(),
+			  "clinica="+$("#clinica").val()+"&idRol="+$("#idRol").val()
+			  +"&idUsuario="+$("#idUsuario").val()+"&claveUsuario="+$("#claveUsuario").val(),
               function(obj) {
                     for (var i=0; i<obj.length; i++) {
                     	//creamos la cita
@@ -566,13 +567,13 @@ function cargaAgenda(appointments) {
 /***
  * Opciones del menu y acciones disponibles
  */
-function loadMenu(opcion,idClinica,idRol) {
+function loadMenu(opcion,idClinica,idRol,idUsuario,claveUsuario) {
 	//registro paciente
 	if (opcion == 'A') {
 		$("#opcionesMenu").load("./vistas/registration.jsp");
 	//inicio o opcion agenda	
 	} else if (opcion == 'I' || opcion == 'Ag') {
-		$("#opcionesMenu").load("./vistas/agenda.jsp","clinica="+idClinica+"&idRol="+idRol);
+		$("#opcionesMenu").load("./vistas/agenda.jsp","clinica="+idClinica+"&idRol="+idRol+"&idUsuario="+idUsuario+"&claveUsuario="+claveUsuario);
 	//configuracion:crear especialista
 	} else if (opcion=='CE'){
 		$("#opcionesMenu").load("./vistas/crearEspecialista.jsp");

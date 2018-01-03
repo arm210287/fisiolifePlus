@@ -95,12 +95,18 @@
 							<a>Bienvenido: ${nombreUsuario}</a>
 						</p>
 						
-						<!-- clinica/idRol del usuario conectado -->
+						<!-- informacion del usuario conectado -->
 		
 						<c:set var="idClinica" scope="session" value="${clinica}" />
 						<c:set var="idRol" scope="session" value="${idRol}" />
+						<c:set var="idUsuario" scope="session" value="${idUsuario}" />
+						<c:set var="claveUsuario" scope="session" value="${claveUsuario}" />				
+						
+						<!-- variables a tratar -->
 						<input id="clinica" type="hidden" value="${idClinica}"/>
 						<input id="idRol" type="hidden" value="${idRol}"/>
+						<input id="idUsuario" type="hidden" value="${idUsuario}"/>
+						<input id="claveUsuario" type="hidden" value="${claveUsuario}"/>
 						
 						<!-- Sample menu definition -->
 						<ul id="main-menu" class="sm sm-blue">
@@ -118,15 +124,15 @@
 								<c:otherwise>
 									<li><a href="#">Clinicas</a>
 										<ul>
-											<li><a href="#" onclick="loadMenu('Ag','1','1');">Vista Alegre</a></li>
-											<li><a href="#" onclick="loadMenu('Ag','2','1');">Cuzco</a></li>
+											<li><a href="#" onclick="loadMenu('Ag','1','1','1','ariadna123');">Vista Alegre</a></li>
+											<li><a href="#" onclick="loadMenu('Ag','2','3','4','david123');">Cuzco</a></li>
 										</ul></li>
 								</c:otherwise>
 							</c:choose>
 							<c:choose>
 							
 								<c:when test="${rol eq 'FISIO' or rol eq 'FRAN'}">							
-									<li><a href="#" onclick="loadMenu('Ag','${idRol}','${clinica}');return false;">Agenda</a></li>
+									<li><a href="#" onclick="loadMenu('Ag','${clinica}','${idRol}','${idUsuario}','${claveUsuario}');return false;">Agenda</a></li>
 								</c:when>
 								<c:otherwise>
 									<li><a href="#" class="disabled">Agenda</a></li>
@@ -157,7 +163,7 @@
 							<li><a href="#">Contabilidad</a>
 								<ul>
 									<c:choose>
-										<c:when test="${rol eq 'FISIO'}">
+										<c:when test="${rol eq 'FISIO' or rol eq 'GERENT'}">
 											<li><a href="#" class="disabled">Facturas</a></li>
 											<li><a href="#" class="disabled">Inventario</a></li>
 											<li><a href="#" class="disabled">Balances</a>
@@ -185,10 +191,11 @@
 										</c:otherwise>
 									</c:choose>
 								</ul></li>
+								
 							<li><a href="#">Notificaciones</a></li>
 							
 							<c:choose>
-								<c:when test="${rol eq 'FISIO' or rol eq 'FRAN'}">							
+								<c:when test="${rol eq 'FRAN'}">							
 									<li><a href="#">Configuración</a>
 									<ul>
 										<li><a href="#" onclick="loadMenu('CE');return false;">Añadir Especialista</a></li>
@@ -198,8 +205,8 @@
 								<c:otherwise>
 									<li><a href="#">Configuración</a>
 									<ul>
-										<li><a href="#" onclick="loadMenu('CE');return false;">Añadir Especialista</a></li>
-										<li><a href="#" onclick="loadMenu('CESP');return false;">Añadir Especialidad</a></li>
+										<li><a href="#" class="disabled" onclick="loadMenu('CE');return false;">Añadir Especialista</a></li>
+										<li><a href="#" class="disabled" onclick="loadMenu('CESP');return false;">Añadir Especialidad</a></li>
 									</ul></li>
 								</c:otherwise>
 							</c:choose>

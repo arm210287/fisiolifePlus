@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import fisioBack.bo.listaPacienteBO;
 import fisioBack.services.PacienteService;
 //import fisioBack.model.User;
 //import fisioBack.model.UserProfile;
@@ -30,8 +31,16 @@ public class PacienteController {
 	 * @return
 	 */
 	@RequestMapping(value="/listaPacientes", method = RequestMethod.GET)
-	public @ResponseBody  List<String> lista (@RequestParam ("clinica") Integer clinica,@RequestParam ("idRol") Integer idRol){
-		List<String> listaPacientes = this.pacienteService.listaPacienteClinicas(clinica,idRol);
+	public @ResponseBody  List<String> lista (@RequestParam ("clinica") Integer clinica,@RequestParam ("idRol") Integer idRol,
+			@RequestParam ("idUsuario") Integer idUsuario,@RequestParam ("claveUsuario") String claveUsuario){
+		
+		listaPacienteBO infoPaciente = new listaPacienteBO();
+		infoPaciente.setIdClinica(clinica);
+		infoPaciente.setIdRol(idRol);
+		infoPaciente.setClaveUsuario(claveUsuario);
+		infoPaciente.setIdUsuario(idUsuario);
+		
+		List<String> listaPacientes = this.pacienteService.listaPacienteClinicas(infoPaciente);
 		List<String> listaAgendaPacientes = new ArrayList<String>();
 		if(listaPacientes!=null && listaPacientes.size()>0){
 			listaAgendaPacientes=listaPacientes;

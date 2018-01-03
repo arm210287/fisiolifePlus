@@ -7,8 +7,22 @@ public class InfoLogin {
 	private String tipo;
 	private String fkClinica;
 	private String idRol;
+	private String idUsuario;
+	private String claveUsuario;
+
 	
-	
+	public String getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	public String getClaveUsuario() {
+		return claveUsuario;
+	}
+	public void setClaveUsuario(String claveUsuario) {
+		this.claveUsuario = claveUsuario;
+	}
 	public String getIdRol() {
 		return idRol;
 	}
@@ -39,7 +53,6 @@ public class InfoLogin {
 	public void setFkClinica(String fkClinica) {
 		this.fkClinica = fkClinica;
 	}
-	
-	
+
 
 }

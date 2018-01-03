@@ -79,14 +79,16 @@
 		<%
 			String idClinica = request.getParameter("clinica");
 			String idRol = request.getParameter("idRol");
-			System.out.println("Printed:" + idClinica);
-			System.out.println("Printed:" + idRol);
+			String idUsuario = request.getParameter("idUsuario");
+			String claveUsuario = request.getParameter("claveUsuario");
 
 		%>
 		
 		<!-- variables almacenadas -->
 		<input id="idClinicaGeneral" type="hidden" value=<%=idClinica%> />
 		<input id="idRolGeneral" type="hidden" value=<%=idRol%> />
+		<input id="idUsuarioGeneral" type="hidden" value=<%=idUsuario%> />
+		<input id="claveUsuarioGeneral" type="hidden" value=<%=claveUsuario%> />
 		
 		<!-- carga la agenda segun el ROL y la Clinica en cuestion -->
 		<div id="scheduler"></div>
