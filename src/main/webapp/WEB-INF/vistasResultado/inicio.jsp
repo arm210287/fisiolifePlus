@@ -145,7 +145,7 @@
 								<ul>
 									<li><a href="#" onclick="loadMenu('A');return false;">Añadir</a></li>
 									<li><a href="#" onclick="loadMenu('ConsPac','${idRol}','${clinica}');return false;">Consultar</a></li>
-									<li><a href="#">Historias Clinicas</a></li>
+									<li><a href="#" onclick="loadMenu('ConsHistoriaPac','${idRol}','${clinica}');return false;">Historias Clinicas</a></li>
 								</ul></li>
 							<li><a href="#">Estadisticas</a>
 								<ul>
@@ -178,7 +178,7 @@
 											<li><a href="#">Facturas</a>
 												<ul>
 													<li><a href="#">Añadir</a></li>
-													<li><a href="#">Consultar</a></li>
+													<li><a href="#" onclick="loadMenu('ConsFactura','${idRol}','${clinica}');return false;">Consultar</a></li>
 												</ul></li>
 											<li><a href="#">Inventario</a></li>
 											<li><a href="#">Balances</a>

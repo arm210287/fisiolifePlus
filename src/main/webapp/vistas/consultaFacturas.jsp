@@ -28,34 +28,24 @@
 <script type="text/javascript" src="./assets/jqwidgets/jqxgrid.pager.js"></script> 
 <script type="text/javascript" src="./assets/jqwidgets/jqxgrid.grouping.js"></script> 
 <script type="text/javascript" src="./assets/jqwidgets/jqxwindow.js"></script>
-<script type="text/javascript" src="./assets/js/gridPacienteResultados.js"></script>
+<script type="text/javascript" src="./assets/js/gridFacturasResultados.js"></script>
 
 
 <body>
 <!-- filtro de busqueda -->
 <div id="signup" class="grid_100">
     <div class="header">
-	        <h3>Consulta Pacientes</h3>
+	        <h3>Consulta Facturas</h3>
 	 </div>
     <form id="">
     	<!-- campos de filtro -->
 		<div class ="grid_100">
 		
 				<div class="grid_25 fl">
-					<label>Nombre del Paciente:</label>
+					<label>Nombre/Razón Social:</label>
 	           	 	<input  type="text" placeholder=""  autofocus/>
 	           	 </div>
-	           	
-	           	 <div class="grid_25 fl">
-	           	 	<label>Especialidad Atendida:</label>
-	           	 	<input  type="text" placeholder=""  autofocus/>
-	           	 </div>
-	           	 <div class="grid_25 fl"> 
-	           	 	<label>Número Total de Sesiones:</label>
-	           	 	<input  type="text" placeholder=""  autofocus/>
-	           	 </div>	 	 
-	           	 
-	           	  <div class ="grid_25 fr">
+	           	 <div class ="grid_25 fl">
            	 		<div class ="grid_50 fr">
            	 			<label>Fecha Hasta</label>
            	 		 	<input id="fecha_hasta"/>
@@ -65,6 +55,7 @@
            		 		<input id="fecha_desde"/>
            	 		 </div>
            		</div>
+	           	 
 	     </div>
 	     
 	     <!-- Botones -->

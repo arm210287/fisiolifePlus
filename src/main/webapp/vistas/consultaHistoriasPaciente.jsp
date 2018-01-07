@@ -28,14 +28,14 @@
 <script type="text/javascript" src="./assets/jqwidgets/jqxgrid.pager.js"></script> 
 <script type="text/javascript" src="./assets/jqwidgets/jqxgrid.grouping.js"></script> 
 <script type="text/javascript" src="./assets/jqwidgets/jqxwindow.js"></script>
-<script type="text/javascript" src="./assets/js/gridPacienteResultados.js"></script>
+<script type="text/javascript" src="./assets/js/gridHistoriasPacienteResultados.js"></script>
 
 
 <body>
 <!-- filtro de busqueda -->
 <div id="signup" class="grid_100">
     <div class="header">
-	        <h3>Consulta Pacientes</h3>
+	        <h3>Consulta Historias Pacientes</h3>
 	 </div>
     <form id="">
     	<!-- campos de filtro -->
@@ -51,7 +51,7 @@
 	           	 	<input  type="text" placeholder=""  autofocus/>
 	           	 </div>
 	           	 <div class="grid_25 fl"> 
-	           	 	<label>Número Total de Sesiones:</label>
+	           	 	<label>Repeticiones del Tratamiento:</label>
 	           	 	<input  type="text" placeholder=""  autofocus/>
 	           	 </div>	 	 
 	           	 

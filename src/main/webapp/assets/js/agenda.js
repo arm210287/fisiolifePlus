@@ -571,12 +571,15 @@ function loadMenu(opcion,idClinica,idRol,idUsuario,claveUsuario) {
 	//registro paciente
 	if (opcion == 'A') {
 		$("#opcionesMenu").load("./vistas/registration.jsp");
-	//inicio o opcion agenda	
+	
+		//inicio o opcion agenda	
 	} else if (opcion == 'I' || opcion == 'Ag') {
 		$("#opcionesMenu").load("./vistas/agenda.jsp","clinica="+idClinica+"&idRol="+idRol+"&idUsuario="+idUsuario+"&claveUsuario="+claveUsuario);
-	//configuracion:crear especialista
+	
+		//configuracion:crear especialista
 	} else if (opcion=='CE'){
 		$("#opcionesMenu").load("./vistas/crearEspecialista.jsp");
+		
 	//configuracion: crear especialidad
 	} else if (opcion=='CESP'){
 		$("#opcionesMenu").load("./vistas/crearEspecialidad.jsp");
@@ -587,5 +590,18 @@ function loadMenu(opcion,idClinica,idRol,idUsuario,claveUsuario) {
 			$("#opcionesMenu").load("./vistas/consultaPaciente.jsp");
 		
 		}
+	
+	//paciente: consulta historias
+	 else if (opcion=='ConsHistoriaPac'){
+			$("#opcionesMenu").load("./vistas/consultaHistoriasPaciente.jsp");
+		
+		}
+	
+	//facturas: consulta
+	 else if (opcion=='ConsFactura'){
+			$("#opcionesMenu").load("./vistas/consultaFacturas.jsp");
+		
+		}
+
 }
 
