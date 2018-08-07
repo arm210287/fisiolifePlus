@@ -90,7 +90,7 @@ function datosGrid(){
 	    columns: [
 	        { text: 'Nombre'		  	  , datafield: 'primerNombre'		, width: 100 },
 	        { text: 'Apellido'	  		  , datafield: 'primerApellido'		, width: 100 },
-	        { text: 'Edad' 				  , datafield: 'edad'				, width: 80, cellsalign: 'right', cellsformat: 'c2' },
+	        { text: 'Edad' 				  , datafield: 'edad'				, width: 80,  cellsalign: 'right', cellsformat: 'c2' },
 	        { text: 'Fecha de Nacimiento' , datafield: 'fechaNacimiento'	, width: 140, cellsalign: 'right', cellsformat: 'c2' },
 	        { text: 'Correo Electrónico'  , datafield: 'correoElectrónico'	, width: 140, cellsalign: 'right', cellsformat: 'c2' },
 	        { text: 'Número de Sesión'	  , datafield: 'numeroSesión'		, width: 140, cellsalign: 'right', cellsformat: 'c2' },

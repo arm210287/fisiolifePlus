@@ -1917,3 +1917,9 @@ input:focus {
 .fr{
 	float: right;
 }
+.pt1{
+	padding-top: 1em;
+}
+.pr1{
+	padding-right: 1em;
+}

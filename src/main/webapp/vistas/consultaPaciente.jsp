@@ -41,29 +41,27 @@
     	<!-- campos de filtro -->
 		<div class ="grid_100">
 		
-				<div class="grid_25 fl">
+				<div class="grid_30 fl pr1">
 					<label>Nombre del Paciente:</label>
 	           	 	<input  type="text" placeholder=""  autofocus/>
 	           	 </div>
 	           	
-	           	 <div class="grid_25 fl">
-	           	 	<label>Especialidad Atendida:</label>
+	           	 <div class="grid_30 fl pr1">
+	           	 	<label>Correo Electrónico:</label>
 	           	 	<input  type="text" placeholder=""  autofocus/>
-	           	 </div>
-	           	 <div class="grid_25 fl"> 
-	           	 	<label>Número Total de Sesiones:</label>
-	           	 	<input  type="text" placeholder=""  autofocus/>
-	           	 </div>	 	 
+	           	 </div>	 
 	           	 
-	           	  <div class ="grid_25 fr">
-           	 		<div class ="grid_50 fr">
-           	 			<label>Fecha Hasta</label>
-           	 		 	<input id="fecha_hasta"/>
+	           	  <div class ="">
+           	 		
+           	 		<div class ="fl pr1">
+           	 			<label>Fecha Desde</label>
+           	 			<input id="fecha_desde"/>
+           	 		</div>
+           	 		<div class ="">
+           	 		 	<label>Fecha Hasta</label>
+           		 		<input id="fecha_hasta"/>
            	 		 </div>	
-           	 		 <div class ="grid_50 fr">
-           	 		 	<label>Fecha Desde</label>
-           		 		<input id="fecha_desde"/>
-           	 		 </div>
+           	 		 
            		</div>
 	     </div>
 	     

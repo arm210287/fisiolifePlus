@@ -48,16 +48,11 @@ function datosGrid(){
 	    var price = parseFloat(priceValues[productindex]);
 	    var quantity = 1 + Math.round(Math.random() * 10);
 	    row["primerNombre"] = firstNames[Math.floor(Math.random() * firstNames.length)];
-	    row["segundoNombre"] = lastNames[Math.floor(Math.random() * lastNames.length)];
 	    row["primerApellido"] = lastNames[Math.floor(Math.random() * lastNames.length)];
-	    row["segundoApellido"] = lastNames[Math.floor(Math.random() * lastNames.length)];
 	    row["edad"] = lastNames[Math.floor(Math.random() * lastNames.length)];
 	    row["fechaNacimiento"] = lastNames[Math.floor(Math.random() * lastNames.length)];
 	    row["correoElectrónico"] = lastNames[Math.floor(Math.random() * lastNames.length)];
-	    row["numeroSesión"] = productNames[productindex];
 	    row["especialidad"] = "";
-	    row["precioSesión"] = quantity;
-	    row["continuidad"] = "";
 	    row["fechaRegistro"] = "";
 	    row["ultimaActualización"] = "";
 	    row["observaciones"] ="";
@@ -94,17 +89,13 @@ function datosGrid(){
 	        { text: 'Primer Nombre'  	  , datafield: 'primerNombre'		, width: 100 },
 	        { text: 'Segundo Nombre'	  , datafield: 'segundoNombre'		, width: 110 },
 	        { text: 'Primer Apellido'	  , datafield: 'primerApellido'		, width: 100 },
-	        { text: 'Segundo Apellido'	  , datafield: 'segundoApellido'	, width: 140, cellsalign: 'right' },
+	        { text: 'Segundo Apellido'	  , datafield: 'segundoApellido'	, width: 120, cellsalign: 'right' },
 	        { text: 'Edad'				  , datafield: 'edad'				, width: 100, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Fecha de Nacimiento' , datafield: 'fechaNacimiento'	, width: 140, cellsalign: 'right', cellsformat: 'c2' },
+	        { text: 'Fecha de Nacimiento' , datafield: 'fechaNacimiento'	, width: 130, cellsalign: 'right', cellsformat: 'c2' },
 	        { text: 'Correo Electrónico'  , datafield: 'correoElectrónico'	, width: 140, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Número de Sesión'	  , datafield: 'numeroSesión'		, width: 140, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Especialidad'		  , datafield: 'especialidad'		, width: 100, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Precio de Sesión'	  , datafield: 'precioSesión'		, width: 100, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Continuidad'		  , datafield: 'continuidad'		, width: 100, cellsalign: 'right', cellsformat: 'c2' },
 	        { text: 'Fecha Registro'	  , datafield: 'fechaRegistro'		, width: 100, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Última Actualización', datafield: 'ultimaActualización', width: 100, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Observaciones'		  , datafield: 'observaciones'		, width: 160, cellsalign: 'right', cellsformat: 'c2' }
+	        { text: 'Última Actualización', datafield: 'ultimaActualización', width: 130, cellsalign: 'right', cellsformat: 'c2' },
+	        { text: 'Observaciones'		  , datafield: 'observaciones'		, width: 170, cellsalign: 'right', cellsformat: 'c2' }
 	    ]
 	});
 	
