@@ -21,6 +21,11 @@ public class PacienteServiceImpl implements PacienteService{
 	public List<String> listaPacienteClinicas(listaPacienteBO infoPaciente) {
 		return dao.listaPacientesCitas(infoPaciente);
 	}
+	
+	@Override
+	public List<String> listaDatosPacienteClinicas(listaPacienteBO infoPaciente) {
+		return dao.listaDatosPacientesCitas(infoPaciente);
+	}
 
 
 

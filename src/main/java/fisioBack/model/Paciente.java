@@ -1,12 +1,15 @@
 package fisioBack.model;
 
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.type.TrueFalseType;
 
 
 @Entity
@@ -25,12 +28,19 @@ public class Paciente implements Serializable{
 	private Integer idPaciente;
 
 
-	@Column(name="nombre", nullable=false)
+	@Column(name="nombre", nullable=true)
 	private String nombre;
 		
 	@Column(name="apellido", nullable=false)
 	private String apellido;
-
+	
+		
+	@Column(name="segundo_apellido",nullable=true)
+	private String segundoApellido;
+	
+		
+	@Column(name="segundo_nombre",nullable=true)
+	private String segundoNombre;
 
 	@Column(name="edad", nullable=false)
 	private String edad;
@@ -39,15 +49,79 @@ public class Paciente implements Serializable{
 	private String telefono;
 
 
-	@Column(name="correo", nullable=false)
+	@Column(name="correo",nullable=true)
 	private String correo;
+	
 
+	@Column(name="fecha_nacimiento", nullable=false)
+	private String fechaNacimiento;
+
+
+	@Column(name="fecha_registro",nullable=true)
+	private String fechaRegistro;
+	
+
+	@Column(name="fecha_actualizacion",nullable=true)
+	private String fechaUltActual;
 
 	@Column(name="fk_direccion", nullable=false)
 	private String fkDireccion;
 
 	@Column(name="fk_id_clinica", nullable=false)
 	private String fkClinica;
+
+	@Column(name="observaciones")
+	private String observaciones;
+	
+	
+	
+	public String getObservaciones() {
+		return observaciones;
+	}
+
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+
+	public String getSegundoApellido() {
+		return segundoApellido;
+	}
+
+	public void setSegundoApellido(String segundoApellido) {
+		this.segundoApellido = segundoApellido;
+	}
+
+	public String getSegundoNombre() {
+		return segundoNombre;
+	}
+
+	public void setSegundoNombre(String segundoNombre) {
+		this.segundoNombre = segundoNombre;
+	}
+
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(String fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getFechaRegistro() {
+		return fechaRegistro;
+	}
+
+	public void setFechaRegistro(String fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+
+	public String getFechaUltActual() {
+		return fechaUltActual;
+	}
+
+	public void setFechaUltActual(String fechaUltActual) {
+		this.fechaUltActual = fechaUltActual;
+	}
 
 	public Integer getIdPaciente() {
 		return idPaciente;

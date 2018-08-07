@@ -10,7 +10,9 @@ import fisioBack.bo.listaPacienteBO;
 
 @Repository("pacienteDao")
 public class PacienteDaoImpl extends HibernateUtil implements PacienteDao {
-
+	/***
+	 *Metodo que consulta en la BD el listado de pacientes agendados. 
+	 */
 	@Override
 	public List<String> listaPacientesCitas(listaPacienteBO infoPaciente) {
 		Session session = this.sessionFactory.openSession();
@@ -49,6 +51,46 @@ public class PacienteDaoImpl extends HibernateUtil implements PacienteDao {
 		query.setParameter(1,infoPaciente.getIdRol());
 		query.setParameter(2,infoPaciente.getClaveUsuario());
 		query.setParameter(3,infoPaciente.getIdUsuario());
+		List list = query.list();
+		if(list!=null && list.size()>0){
+			return list;
+		}
+		session.close();
+		return null;
+	}
+	
+	@Override
+	/***
+	 * Metodo que busca en BD el listado de pacientes registrados
+	 */
+	public List<String> listaDatosPacientesCitas(listaPacienteBO infoPaciente) {
+		Session session = this.sessionFactory.openSession();
+		String SQL_QUERY ="select DISTINCT  "
+				+ "pa.nombre, "
+				+ "pa.segundoNombre, "
+				+ "pa.apellido, "
+				+ "pa.segundoApellido, "
+				+ "pa.edad, "
+				+ "pa.fechaNacimiento, "
+				+ "pa.correo, "
+				+ "pa.fechaRegistro, "
+				+ "pa.fechaUltActual, "
+				+ "pa.observaciones "
+				+ "from "
+				+ "fisioBack.model.Clinica as cli, "
+				+ "fisioBack.model.Paciente as  pa, "
+				+ "fisioBack.model.Rol as r "
+				+ "where "
+				+ "cli.idClinica = pa.fkClinica  "
+				+ "and cli.idClinica=? "
+				+ "and pa.nombre= ? "
+				+ "and pa.correo=? ";
+		
+		Query query =  session.createQuery(SQL_QUERY);
+		query.setParameter(0,infoPaciente.getIdClinica());
+		query.setParameter(1,infoPaciente.getNombrePaciente());
+		query.setParameter(2,infoPaciente.getCorreoElectronico());
+		
 		List list = query.list();
 		if(list!=null && list.size()>0){
 			return list;

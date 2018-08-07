@@ -587,7 +587,7 @@ function loadMenu(opcion,idClinica,idRol,idUsuario,claveUsuario) {
 	}
 	//paciente: consulta
 	 else if (opcion=='ConsPac'){
-			$("#opcionesMenu").load("./vistas/consultaPaciente.jsp");
+			$("#opcionesMenu").load("./vistas/consultaPaciente.jsp","clinica="+idClinica+"&idRol="+idRol);
 		
 		}
 	

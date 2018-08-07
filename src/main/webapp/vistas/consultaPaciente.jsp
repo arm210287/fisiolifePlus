@@ -29,6 +29,7 @@
 <script type="text/javascript" src="./assets/jqwidgets/jqxgrid.grouping.js"></script> 
 <script type="text/javascript" src="./assets/jqwidgets/jqxwindow.js"></script>
 <script type="text/javascript" src="./assets/js/gridPacienteResultados.js"></script>
+<script type="text/javascript" src="./assets/js/utilidades.js"></script>
 
 
 <body>
@@ -37,29 +38,42 @@
     <div class="header">
 	        <h3>Consulta Pacientes</h3>
 	 </div>
+	     
+    <!-- Recoge variables de URL -->
+    	<%
+			String idClinica = request.getParameter("clinica");
+			String idRol = request.getParameter("idRol");
+
+		%>
+		
+		<!-- variables almacenadas -->
+		<input id="idClinicaGeneral" type="hidden" value=<%=idClinica%> />
+		<input id="idRolGeneral" type="hidden" value=<%=idRol%> />
+		
+	<!-- Formulario de filtros de busquedad -->	
     <form id="">
     	<!-- campos de filtro -->
 		<div class ="grid_100">
 		
-				<div class="grid_30 fl pr1">
+				<div class="grid_25 fl pr1">
 					<label>Nombre del Paciente:</label>
-	           	 	<input  type="text" placeholder=""  autofocus/>
+	           	 	<input id="nombrePaciente" type="text" placeholder=""  autofocus/>
 	           	 </div>
 	           	
-	           	 <div class="grid_30 fl pr1">
+	           	 <div class="grid_25 fl pr1">
 	           	 	<label>Correo Electrónico:</label>
-	           	 	<input  type="text" placeholder=""  autofocus/>
+	           	 	<input id="correoElectronico" type="text" placeholder=""  autofocus/>
 	           	 </div>	 
 	           	 
 	           	  <div class ="">
            	 		
            	 		<div class ="fl pr1">
            	 			<label>Fecha Desde</label>
-           	 			<input id="fecha_desde"/>
+           	 			<input id="fechaDesde"/>
            	 		</div>
            	 		<div class ="">
            	 		 	<label>Fecha Hasta</label>
-           		 		<input id="fecha_hasta"/>
+           		 		<input id="fechaHasta"/>
            	 		 </div>	
            	 		 
            		</div>
@@ -69,10 +83,12 @@
 	  
 		  <div class="inputs grid_100 fr">
 		       <div class ="fr">	
-		          <a id="submit" href="#">Buscar</a>
+		          <a id="submit" href="#" onclick="formluarioValido();">Buscar</a>
 		    	</div>
           	</div>
     </form>
+
+
      
 </div>
 
@@ -84,9 +100,9 @@
 <!-- mensajes de alerta -->
 <div id='jqxwindow' display="none">
             <div>
-               Mensaje </div>
+               Campos Requeridos </div>
             <div>
-               <h2>Se ha registrado exitosamente</h2>
+               <h2>Debe Seleccionar al menos alguno de los campos para poder consultar</h2>
                 <br />
                 <input type="button" style="" value="Aceptar" id="aceptarRegistro" />
             </div>

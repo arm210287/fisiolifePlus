@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	//datos de la tabla de resultado
-	datosGrid();
+	//datosGrid();
 	
 	//rango de fechas de consulta/carga la fecha del dia actual
-	$("#fecha_desde").jqxDateTimeInput(
+	$("#fechaDesde").jqxDateTimeInput(
 			{ theme: "summer",
 			  formatString: "dd/MM/yyyy",
 			  showTimeButton: false,
@@ -11,53 +11,80 @@ $(document).ready(function() {
 			  culture: 'es-ES',
 			  height: '25px' });
 	
-	$("#fecha_hasta").jqxDateTimeInput(
+	$("#fechaHasta").jqxDateTimeInput(
 			{ theme: "summer",
 			  formatString: "dd/MM/yyyy",
 			  showTimeButton: false,
-			  width: '105px',
+			  width: '120px',
 			  culture: 'es-ES',
 			  height: '25px' });	
 	
-	//mensajes de alerta
-	 $("#jqxwindow").jqxWindow({ height: 150, width: 300, theme: 'summer', isModal: true, autoOpen: false });
 });
 
-function datosGrid(){
-	// prepare the data
-	var data = new Array();
-	var firstNames =
-	[
-	    "Andrew", "Nancy", "Shelley", "Regina", "Yoshi", "Antoni", "Mayumi", "Ian", "Peter", "Lars", "Petra", "Martin", "Sven", "Elio", "Beate", "Cheryl", "Michael", "Guylene"
-	];
-	var lastNames =
-	[
-	    "Fuller", "Davolio", "Burke", "Murphy", "Nagase", "Saavedra", "Ohno", "Devling", "Wilson", "Peterson", "Winkler", "Bein", "Petersen", "Rossi", "Vileid", "Saylor", "Bjorn", "Nodier"
-	];
-	var productNames =
-	[
-	    "Black Tea", "Green Tea", "Caffe Espresso", "Doubleshot Espresso", "Caffe Latte", "White Chocolate Mocha", "Cramel Latte", "Caffe Americano", "Cappuccino", "Espresso Truffle", "Espresso con Panna", "Peppermint Mocha Twist"
-	];
-	var priceValues =
-	[
-	    "2.25", "1.5", "3.0", "3.3", "4.5", "3.6", "3.8", "2.5", "5.0", "1.75", "3.25", "4.0"
-	];
-	for (var i = 0; i < 1000; i++) {
-	    var row = {};
-	    var productindex = Math.floor(Math.random() * productNames.length);
-	    var price = parseFloat(priceValues[productindex]);
-	    var quantity = 1 + Math.round(Math.random() * 10);
-	    row["primerNombre"] = firstNames[Math.floor(Math.random() * firstNames.length)];
-	    row["primerApellido"] = lastNames[Math.floor(Math.random() * lastNames.length)];
-	    row["edad"] = lastNames[Math.floor(Math.random() * lastNames.length)];
-	    row["fechaNacimiento"] = lastNames[Math.floor(Math.random() * lastNames.length)];
-	    row["correoElectrónico"] = lastNames[Math.floor(Math.random() * lastNames.length)];
-	    row["especialidad"] = "";
-	    row["fechaRegistro"] = "";
-	    row["ultimaActualización"] = "";
-	    row["observaciones"] ="";
-	    data[i] = row;
+/***
+ * Validaciones
+ */
+
+function validaciones(){
+	if(($("#nombrePaciente").val()=="" || $("#nombrePaciente").val()=="undefined")
+		&& ($("#correoElectronico").val()=="" || $("#correoElectronico").val()=="undefined")){
+		  $("#jqxwindow").jqxWindow('open');
+		  return false;
 	}
+	return true;
+};
+
+/***
+ * Valida que el formulario sea correcto para consultar
+ */
+function formluarioValido(){
+	//validaciones
+	if(validaciones()) datosPacienteGrid();
+}
+
+/***
+ * Consulta los datos de los pacientes por clinica
+ */
+function datosPacienteGrid(){
+				  
+	//llamada ajax para recuperar cantidad de registros y datos del paciente
+	  $.getJSON(
+			  'listaDatosPaciente',
+			  "clinica="+$("#idClinicaGeneral").val()
+			  +"&idRol="+$("#idRolGeneral").val()
+			  +"&fechaDesde="+$("#fechaDesde").val()
+			  +"&fechaHasta="+$("#fechaHasta").val()
+			  +"&nombrePaciente="+$("#nombrePaciente").val()
+			  +"&correoElectronico="+$("#correoElectronico").val(),
+              
+			  function(obj) {
+			   var data = new Array();
+		
+						//recorre cantidad de pacientes y asigna sus datos
+						for (var i = 0; i < obj.length; i++) {
+						    var row = {};
+						    row["primerNombre"] =		obj[i][0];
+						    row["segundoNombre"] = 		obj[i][1];	    
+						    row["primerApellido"] = 	obj[i][2];
+						    row["segundoApellido"] = 	obj[i][3];
+						    row["edad"] = 				obj[i][4],
+						    row["fechaNacimiento"] = 	obj[i][5];
+						    row["correoElectrónico"] = 	obj[i][6];
+						    row["fechaRegistro"] = 		obj[i][7];
+						    row["ultimaActualización"]= obj[i][8];
+						    row["observaciones"] =		obj[i][9];
+						    data[i] = row;
+						}
+				  
+				
+
+				// carga datos para la grid
+					cargarDatosPacientes(data);
+              }
+	  	);
+	
+// asigna datos a la grid para luego pintarla
+function cargarDatosPacientes(data){	  
 	var source =
 	{
 	    localdata: data,
@@ -134,5 +161,6 @@ function datosGrid(){
 	    // apply localization.
 	    $("#jqxgrid").jqxGrid('localizestrings', localizationobj);
 
+ }
 }
 

@@ -6,7 +6,37 @@ public class listaPacienteBO {
 	private Integer idClinica;
 	private Integer idUsuario;
 	private String claveUsuario;
+	private String nombrePaciente;
+	private String correoElectronico;
+	private String fechaDesde;
+	private String fechaHasta;
 	
+	
+	
+	public String getNombrePaciente() {
+		return nombrePaciente;
+	}
+	public void setNombrePaciente(String nombrePaciente) {
+		this.nombrePaciente = nombrePaciente;
+	}
+	public String getCorreoElectronico() {
+		return correoElectronico;
+	}
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
+	}
+	public String getFechaDesde() {
+		return fechaDesde;
+	}
+	public void setFechaDesde(String fechaDesde) {
+		this.fechaDesde = fechaDesde;
+	}
+	public String getFechaHasta() {
+		return fechaHasta;
+	}
+	public void setFechaHasta(String fechaHasta) {
+		this.fechaHasta = fechaHasta;
+	}
 	public Integer getIdRol() {
 		return idRol;
 	}

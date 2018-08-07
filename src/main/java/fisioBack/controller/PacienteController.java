@@ -46,9 +46,35 @@ public class PacienteController {
 			listaAgendaPacientes=listaPacientes;
 			return listaAgendaPacientes;
 		}
-		return null;
+		return listaAgendaPacientes;
 	}
 
+	/***
+	 * Metodo que retorna la lista de los datos de los pacientes asociados por clinica
+	 * @return
+	 */
+	@RequestMapping(value="/listaDatosPaciente", method = RequestMethod.GET)
+	public @ResponseBody  List<String> lista (@RequestParam ("clinica") Integer clinica,@RequestParam ("idRol") Integer idRol,
+			@RequestParam ("nombrePaciente") String nombrePaciente,@RequestParam ("correoElectronico") String correoElectronico,
+			@RequestParam ("fechaDesde") String fechaDesde,@RequestParam ("fechaHasta") String fechaHasta){
+		
+		listaPacienteBO infoPaciente = new listaPacienteBO();
+		infoPaciente.setIdClinica(clinica);
+		infoPaciente.setIdRol(idRol);
+		infoPaciente.setNombrePaciente(nombrePaciente);
+		infoPaciente.setCorreoElectronico(correoElectronico);
+		infoPaciente.setFechaDesde(fechaDesde);
+		infoPaciente.setFechaHasta(fechaHasta);
+		
+		List<String> listaPacientes = this.pacienteService.listaDatosPacienteClinicas(infoPaciente);
+		List<String> listaDatosPacientes = new ArrayList<String>();
+		if(listaPacientes!=null && listaPacientes.size()>0){
+			listaDatosPacientes=listaPacientes;
+			return listaDatosPacientes;
+		}
+		return listaDatosPacientes;
+	}
+	
 	/**
 	 * This method handles login GET requests.
 	 * If users is already logged-in and tries to goto login page again, will be redirected to list page.

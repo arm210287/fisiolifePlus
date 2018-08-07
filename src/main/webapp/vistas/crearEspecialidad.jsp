@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="./assets/css/formularioCitaOnline.css" />
 <script type="text/javascript" src="./assets/jqwidgets/jqxwindow.js"></script>
 <script src="./assets/js/registrar.js"></script>
+<script src="./assets/js/utilidades.js"></script>
+
 
 <body>
 <div class="container_registro">

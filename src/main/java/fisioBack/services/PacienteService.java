@@ -9,5 +9,7 @@ public interface PacienteService {
 
 	
 	List<String> listaPacienteClinicas(listaPacienteBO infoPaciente);
+	List<String> listaDatosPacienteClinicas(listaPacienteBO infoPaciente);
+
 	
 }
