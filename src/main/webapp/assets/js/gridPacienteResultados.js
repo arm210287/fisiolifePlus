@@ -1,7 +1,4 @@
 $(document).ready(function() {
-	//datos de la tabla de resultado
-	//datosGrid();
-	
 	//rango de fechas de consulta/carga la fecha del dia actual
 	$("#fechaDesde").jqxDateTimeInput(
 			{ theme: "summer",
@@ -108,10 +105,11 @@ function cargarDatosPacientes(data){
 	$("#jqxgrid").jqxGrid(
 	{
 		width: 1200,  
-        pageable: true,
-        autoheight: true,
 	    source: dataAdapter,
 	    sortable: true,
+        pageable: true,
+        autoheight: true,
+        selectionmode: 'singlecell',
 	    columns: [
 	        { text: 'Primer Nombre'  	  , datafield: 'primerNombre'		, width: 100 },
 	        { text: 'Segundo Nombre'	  , datafield: 'segundoNombre'		, width: 110 },
@@ -142,6 +140,45 @@ function cargarDatosPacientes(data){
 	    localizationobj.currencysymbolposition = "antes";
 	    localizationobj.decimalseparator = ",";
 	    localizationobj.thousandsseparator = ".";
+	    
+	    localizationobj.percentsymbol= "%";
+	    localizationobj.currencysymbol= "$";
+	    localizationobj.currencysymbolposition= "anterior";
+	    localizationobj.decimalseparator= ".";
+	    localizationobj.thousandsseparator= ",";
+	    localizationobj.pagergotopagestring= "Ir a pag=";
+	    localizationobj.pagershowrowsstring= "Mostrar filas=";
+	    localizationobj.pagerrangestring= " de ";
+	    localizationobj.pagerpreviousbuttonstring= "previo";
+	    localizationobj.pagernextbuttonstring= "siguiente";
+	    localizationobj.groupsheaderstring= "Arrastre una columna para que se agrupe por ella";
+	    localizationobj.sortascendingstring= "Ordenar Acs";
+	    localizationobj.sortdescendingstring= "Ordenar Des";
+	    localizationobj.sortremovestring= "Quitar orden";
+	    localizationobj.groupbystring= "Agrupar por esta columna";
+	    localizationobj.groupremovestring= "Quitar de grupos";
+	    localizationobj.filterclearstring= "Limpiar";
+	    localizationobj.filterstring= "Filtro";
+	    localizationobj.filtershowrowstring= "Mostrar filas donde=";
+	    localizationobj.filtershowrowdatestring= "Mostrar filas donde fecha=";
+	    localizationobj.filterorconditionstring= "O";
+	    localizationobj.filterandconditionstring= "Y";
+	    localizationobj.filterselectallstring= "(Seleccionar Todo)";
+	    localizationobj.filterchoosestring= "Por favor seleccione:";
+	    localizationobj.filterstringcomparisonoperators= ['vacio', 'no vacio', 'contenga', 'contenga(coicidir Mayusculas/Minusculas)',
+	    'no contenga', 'no contenga(coincidir Mayusculas/Minusculas)', 'inicia con', 'inicia con(coicidir Mayusculas/Minusculas)',
+	    'termina con', 'termina con(coicidir Mayusculas/Minusculas)', 'igual', 'igual(coicidir Mayusculas/Minusculas)', 'null', 'no null'];
+	    localizationobj.filternumericcomparisonoperators= ['=', '!=', '<', '<=', '>', '>=', 'null', 'no null'];
+	    localizationobj.filterdatecomparisonoperators= ['=', '!=', '<', '<=', '>', '>=', 'null', 'no null'];
+	    localizationobj.filterbooleancomparisonoperators= ['=', '!='];
+	    localizationobj.validationstring= "Valor no valido";
+	    localizationobj.emptydatastring= "No hay registros que mostrar";
+	    localizationobj.filterselectstring= "Seleccione un Filtro";
+	    localizationobj.loadtext= "Cargando…";
+	    localizationobj.clearstring= "Limpiar";
+	    localizationobj.todaystring= "hoy"; 
+	    
+	    
 	    var days = {
 	        // full day names
 	        names: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],

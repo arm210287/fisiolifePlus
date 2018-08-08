@@ -28,9 +28,12 @@
 <script type="text/javascript" src="./assets/jqwidgets/jqxgrid.pager.js"></script> 
 <script type="text/javascript" src="./assets/jqwidgets/jqxgrid.grouping.js"></script> 
 <script type="text/javascript" src="./assets/jqwidgets/jqxwindow.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/globalization/globalize.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/globalization/globalize.culture.es-ES.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxgrid.edit.js"></script> 
 <script type="text/javascript" src="./assets/js/gridPacienteResultados.js"></script>
 <script type="text/javascript" src="./assets/js/utilidades.js"></script>
-
+<script type="text/javascript" src="./assets/js/traduccionGrid.js"></script>
 
 <body>
 <!-- filtro de busqueda -->
