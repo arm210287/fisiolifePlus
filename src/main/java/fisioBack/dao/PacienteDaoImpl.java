@@ -82,14 +82,24 @@ public class PacienteDaoImpl extends HibernateUtil implements PacienteDao {
 				+ "fisioBack.model.Rol as r "
 				+ "where "
 				+ "cli.idClinica = pa.fkClinica  "
-				+ "and cli.idClinica=? "
-				+ "and pa.nombre= ? "
-				+ "and pa.correo=? ";
+				+ "and cli.idClinica=? ";
+			
 		
+		if(infoPaciente.getNombrePaciente()!=null && infoPaciente.getNombrePaciente()!=""){
+			SQL_QUERY+= " and pa.nombre like :nombre ";
+
+		}
+		if(infoPaciente.getCorreoElectronico()!=null && infoPaciente.getCorreoElectronico()!=""){
+			SQL_QUERY+= " and pa.correo like :correo ";
+
+		}
+
 		Query query =  session.createQuery(SQL_QUERY);
 		query.setParameter(0,infoPaciente.getIdClinica());
-		query.setParameter(1,infoPaciente.getNombrePaciente());
-		query.setParameter(2,infoPaciente.getCorreoElectronico());
+		if(infoPaciente.getNombrePaciente()!=null && infoPaciente.getNombrePaciente()!="")
+			query.setParameter("nombre","%"+infoPaciente.getNombrePaciente()+"%");
+		if(infoPaciente.getCorreoElectronico()!=null && infoPaciente.getCorreoElectronico()!="")
+			query.setParameter("correo","%"+infoPaciente.getCorreoElectronico()+"%");
 		
 		List list = query.list();
 		if(list!=null && list.size()>0){
