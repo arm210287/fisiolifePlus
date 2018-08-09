@@ -28,7 +28,13 @@
 <script type="text/javascript" src="./assets/jqwidgets/jqxgrid.pager.js"></script> 
 <script type="text/javascript" src="./assets/jqwidgets/jqxgrid.grouping.js"></script> 
 <script type="text/javascript" src="./assets/jqwidgets/jqxwindow.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/globalization/globalize.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/globalization/globalize.culture.es-ES.js"></script>
+<script type="text/javascript" src="./assets/jqwidgets/jqxgrid.edit.js"></script> 
 <script type="text/javascript" src="./assets/js/gridFacturasResultados.js"></script>
+<script type="text/javascript" src="./assets/js/utilidades.js"></script>
+<script type="text/javascript" src="./assets/js/traduccionGrid.js"></script>
+
 
 
 <body>
@@ -37,22 +43,41 @@
     <div class="header">
 	        <h3>Consulta Facturas</h3>
 	 </div>
+	     <!-- Recoge variables de URL -->
+    	<%
+			String idClinica = request.getParameter("clinica");
+			String idRol = request.getParameter("idRol");
+
+		%>
+		
+		<!-- variables almacenadas -->
+		<input id="idClinicaGeneral" type="hidden" value=<%=idClinica%> />
+		<input id="idRolGeneral" type="hidden" value=<%=idRol%> />
+		
     <form id="">
     	<!-- campos de filtro -->
 		<div class ="grid_100">
 		
-				<div class="grid_25 fl">
+				<div class="grid_20 fl">
 					<label>Nombre/Razón Social:</label>
-	           	 	<input  type="text" placeholder=""  autofocus/>
+	           	 	<input id="nombreRazonSocial" type="text" placeholder=""  autofocus/>
+	           	 </div>
+	           	 <div class="grid_15 fl">
+					<label>Número:</label>
+	           	 	<input id="numero" type="text" placeholder=""  autofocus/>
+	           	 </div>
+	           	 <div class="grid_15 fl p1">
+					<label>Importe:</label>
+	           	 	<input id="importe" type="text" placeholder=""  autofocus/>
 	           	 </div>
 	           	 <div class ="grid_25 fl">
            	 		<div class ="grid_50 fr">
            	 			<label>Fecha Hasta</label>
-           	 		 	<input id="fecha_hasta"/>
+           	 		 	<input id="fechaHasta"/>
            	 		 </div>	
            	 		 <div class ="grid_50 fr">
            	 		 	<label>Fecha Desde</label>
-           		 		<input id="fecha_desde"/>
+           		 		<input id="fechaDesde"/>
            	 		 </div>
            		</div>
 	           	 
@@ -62,7 +87,7 @@
 	  
 		  <div class="inputs grid_100 fr">
 		       <div class ="fr">	
-		          <a id="submit" href="#">Buscar</a>
+		          <a id="submit" href="#" onclick="formluarioValido();">Buscar</a>
 		    	</div>
           	</div>
     </form>
@@ -77,9 +102,9 @@
 <!-- mensajes de alerta -->
 <div id='jqxwindow' display="none">
             <div>
-               Mensaje </div>
+               Campos Requeridos </div>
             <div>
-               <h2>Se ha registrado exitosamente</h2>
+               <h2>Debe Seleccionar al menos alguno de los campos para poder consultar</h2>
                 <br />
                 <input type="button" style="" value="Aceptar" id="aceptarRegistro" />
             </div>

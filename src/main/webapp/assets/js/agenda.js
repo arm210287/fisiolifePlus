@@ -599,7 +599,7 @@ function loadMenu(opcion,idClinica,idRol,idUsuario,claveUsuario) {
 	
 	//facturas: consulta
 	 else if (opcion=='ConsFactura'){
-			$("#opcionesMenu").load("./vistas/consultaFacturas.jsp");
+			$("#opcionesMenu").load("./vistas/consultaFacturas.jsp","clinica="+idClinica+"&idRol="+idRol);
 		
 		}
 

@@ -1,9 +1,7 @@
 $(document).ready(function() {
-	//datos de la tabla de resultado
-	datosGrid();
 	
 	//rango de fechas de consulta/carga la fecha del dia actual
-	$("#fecha_desde").jqxDateTimeInput(
+	$("#fechaDesde").jqxDateTimeInput(
 			{ theme: "summer",
 			  formatString: "dd/MM/yyyy",
 			  showTimeButton: false,
@@ -11,54 +9,81 @@ $(document).ready(function() {
 			  culture: 'es-ES',
 			  height: '25px' });
 	
-	$("#fecha_hasta").jqxDateTimeInput(
+	$("#fechaHasta").jqxDateTimeInput(
 			{ theme: "summer",
 			  formatString: "dd/MM/yyyy",
 			  showTimeButton: false,
-			  width: '105px',
+			  width: '120px',
 			  culture: 'es-ES',
-			  height: '25px' });	
+			  height: '25px' });		
 	
 	//mensajes de alerta
 	 $("#jqxwindow").jqxWindow({ height: 150, width: 300, theme: 'summer', isModal: true, autoOpen: false });
 });
+/***
+ * Validaciones
+ */
 
-function datosGrid(){
-	// prepare the data
-	var data = new Array();
-	var firstNames =
-	[
-	    "Andrew", "Nancy", "Shelley", "Regina", "Yoshi", "Antoni", "Mayumi", "Ian", "Peter", "Lars", "Petra", "Martin", "Sven", "Elio", "Beate", "Cheryl", "Michael", "Guylene"
-	];
-	var lastNames =
-	[
-	    "Fuller", "Davolio", "Burke", "Murphy", "Nagase", "Saavedra", "Ohno", "Devling", "Wilson", "Peterson", "Winkler", "Bein", "Petersen", "Rossi", "Vileid", "Saylor", "Bjorn", "Nodier"
-	];
-	var productNames =
-	[
-	    "Black Tea", "Green Tea", "Caffe Espresso", "Doubleshot Espresso", "Caffe Latte", "White Chocolate Mocha", "Cramel Latte", "Caffe Americano", "Cappuccino", "Espresso Truffle", "Espresso con Panna", "Peppermint Mocha Twist"
-	];
-	var priceValues =
-	[
-	    "2.25", "1.5", "3.0", "3.3", "4.5", "3.6", "3.8", "2.5", "5.0", "1.75", "3.25", "4.0"
-	];
-	for (var i = 0; i < 1000; i++) {
-	    var row = {};
-	    var productindex = Math.floor(Math.random() * productNames.length);
-	    var price = parseFloat(priceValues[productindex]);
-	    var quantity = 1 + Math.round(Math.random() * 10);
-	    row["firstname"] = firstNames[Math.floor(Math.random() * firstNames.length)];
-	    row["lastname"] = lastNames[Math.floor(Math.random() * lastNames.length)];
-	    row["productname"] = productNames[productindex];
-	    row["price"] = price;
-	    row["quantity"] = quantity;
-	    row["total"] = price * quantity;
-	    row["total1"] = price * quantity;
-	    row["total2"] = price * quantity;
-	    row["total3"] = price * quantity;
-	    row["total4"] = price * quantity;
-	    data[i] = row;
+function validaciones(){
+	if(($("#nombreRazonSocial").val()=="" || $("#nombreRazonSocial").val()=="undefined")
+			&& ($("#numero").val()=="" || $("#numero").val()=="undefined")
+			&& ($("#importe").val()=="" || $("#importe").val()=="undefined")){
+				$("#jqxwindow").jqxWindow('open');
+				return false;
 	}
+	return true;
+};
+
+/***
+ * Valida que el formulario sea correcto para consultar
+ */
+function formluarioValido(){
+	//validaciones
+	if(validaciones()) datosFacturasGrid();
+}
+
+/***
+ * Consulta los datos de los pacientes por clinica
+ */
+function datosFacturasGrid(){
+				  
+	//llamada ajax para recuperar cantidad de registros y datos del paciente
+	  $.getJSON(
+			  'listaFacturasPacientes',
+			  "clinica="+$("#idClinicaGeneral").val()
+			  +"&fechaDesde="+$("#fechaDesde").val()
+			  +"&fechaHasta="+$("#fechaHasta").val()
+			  +"&nombreRazonSocial="+$("#nombreRazonSocial").val()
+			  +"&importe="+$("#importe").val()
+			  +"&numero="+$("#numero").val(),
+              
+			  function(obj) {
+			   var data = new Array();
+		
+						//recorre cantidad de pacientes y asigna sus datos
+						for (var i = 0; i < obj.length; i++) {
+						    var row = {};
+						    row["nombre"] 		  =		obj[i][0];
+						    row["primerApellido"] = 	obj[i][1];	    
+						    row["fecha"] 		  =		obj[i][2];
+						    row["numero"] 		  = 	obj[i][3];
+						    row["importe"] 		  =	    obj[i][4],
+						    row["iva"] 			  = 	obj[i][5];
+						    row["correoElectrónico"] = 	obj[i][6];
+						    row["ultimaActualización"]= obj[i][7];
+						    row["observaciones"] =		obj[i][8];
+						    data[i] = row;
+						}
+				  
+				
+
+				// carga datos para la grid
+					cargarDatosFacturas(data);
+              }
+	  	);
+	
+// asigna datos a la grid para luego pintarla
+function cargarDatosFacturas(data){	  
 	var source =
 	{
 	    localdata: data,
@@ -82,20 +107,21 @@ function datosGrid(){
 	$("#jqxgrid").jqxGrid(
 	{
 		width: 1200,  
-        pageable: true,
-        autoheight: true,
 	    source: dataAdapter,
 	    sortable: true,
+        pageable: true,
+        autoheight: true,
+        selectionmode: 'singlecell',
 	    columns: [
-	        { text: 'First Name', datafield: 'firstname', width: 100 },
-	        { text: 'Last Name', datafield: 'lastname', width: 100 },
-	        { text: 'Product', datafield: 'productname', width: 180 },
-	        { text: 'Quantity', datafield: 'quantity', width: 80, cellsalign: 'right' },
-	        { text: 'Unit Price', datafield: 'total1', width: 90, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Unit Price', datafield: 'total2', width: 90, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Unit Price', datafield: 'total3', width: 90, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Unit Price', datafield: 'total4', width: 90, cellsalign: 'right', cellsformat: 'c2' },
-	        { text: 'Total', datafield: 'total', width: 100, cellsalign: 'right', cellsformat: 'c2' }
+	        { text: 'Nombre'  	  		  , datafield: 'nombre'				, width: 100 },
+	        { text: 'Apellido'			  , datafield: 'primerApellido'		, width: 130 },
+	        { text: 'Fecha'	  			  , datafield: 'fecha'				, width: 120, cellsalign: 'right' },
+	        { text: 'Número'			  , datafield: 'numero'				, width: 100, cellsalign: 'right', cellsformat: 'c2' },
+	        { text: 'Importe'			  , datafield: 'importe'			, width: 100, cellsalign: 'right', cellsformat: 'c2' },
+	        { text: 'Iva' 				  , datafield: 'iva'				, width: 130, cellsalign: 'right', cellsformat: 'c2' },
+	        { text: 'Correo Electrónico'  , datafield: 'correoElectrónico'	, width: 160, cellsalign: 'right', cellsformat: 'c2' },
+	        { text: 'Última Actualización', datafield: 'ultimaActualización', width: 130, cellsalign: 'right', cellsformat: 'c2' },
+	        { text: 'Observaciones'		  , datafield: 'observaciones'		, width: 228, cellsalign: 'right', cellsformat: 'c2' }
 	    ]
 	});
 	
@@ -115,6 +141,45 @@ function datosGrid(){
 	    localizationobj.currencysymbolposition = "antes";
 	    localizationobj.decimalseparator = ",";
 	    localizationobj.thousandsseparator = ".";
+	    
+	    localizationobj.percentsymbol= "%";
+	    localizationobj.currencysymbol= "$";
+	    localizationobj.currencysymbolposition= "anterior";
+	    localizationobj.decimalseparator= ".";
+	    localizationobj.thousandsseparator= ",";
+	    localizationobj.pagergotopagestring= "Ir a pag=";
+	    localizationobj.pagershowrowsstring= "Mostrar filas=";
+	    localizationobj.pagerrangestring= " de ";
+	    localizationobj.pagerpreviousbuttonstring= "previo";
+	    localizationobj.pagernextbuttonstring= "siguiente";
+	    localizationobj.groupsheaderstring= "Arrastre una columna para que se agrupe por ella";
+	    localizationobj.sortascendingstring= "Ordenar Acs";
+	    localizationobj.sortdescendingstring= "Ordenar Des";
+	    localizationobj.sortremovestring= "Quitar orden";
+	    localizationobj.groupbystring= "Agrupar por esta columna";
+	    localizationobj.groupremovestring= "Quitar de grupos";
+	    localizationobj.filterclearstring= "Limpiar";
+	    localizationobj.filterstring= "Filtro";
+	    localizationobj.filtershowrowstring= "Mostrar filas donde=";
+	    localizationobj.filtershowrowdatestring= "Mostrar filas donde fecha=";
+	    localizationobj.filterorconditionstring= "O";
+	    localizationobj.filterandconditionstring= "Y";
+	    localizationobj.filterselectallstring= "(Seleccionar Todo)";
+	    localizationobj.filterchoosestring= "Por favor seleccione:";
+	    localizationobj.filterstringcomparisonoperators= ['vacio', 'no vacio', 'contenga', 'contenga(coicidir Mayusculas/Minusculas)',
+	    'no contenga', 'no contenga(coincidir Mayusculas/Minusculas)', 'inicia con', 'inicia con(coicidir Mayusculas/Minusculas)',
+	    'termina con', 'termina con(coicidir Mayusculas/Minusculas)', 'igual', 'igual(coicidir Mayusculas/Minusculas)', 'null', 'no null'];
+	    localizationobj.filternumericcomparisonoperators= ['=', '!=', '<', '<=', '>', '>=', 'null', 'no null'];
+	    localizationobj.filterdatecomparisonoperators= ['=', '!=', '<', '<=', '>', '>=', 'null', 'no null'];
+	    localizationobj.filterbooleancomparisonoperators= ['=', '!='];
+	    localizationobj.validationstring= "Valor no valido";
+	    localizationobj.emptydatastring= "No hay registros que mostrar";
+	    localizationobj.filterselectstring= "Seleccione un Filtro";
+	    localizationobj.loadtext= "Cargando…";
+	    localizationobj.clearstring= "Limpiar";
+	    localizationobj.todaystring= "hoy"; 
+	    
+	    
 	    var days = {
 	        // full day names
 	        names: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
@@ -134,5 +199,5 @@ function datosGrid(){
 	    // apply localization.
 	    $("#jqxgrid").jqxGrid('localizestrings', localizationobj);
 
+ }
 }
-
